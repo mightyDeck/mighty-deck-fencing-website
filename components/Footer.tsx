@@ -26,15 +26,15 @@ const serviceAreas = [
 
 export const Footer = () => {
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-primaryRed text-primaryBlack">
       {/* Main Footer */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-6">
             <div>
-              <h3 className="text-2xl font-bold mb-2">TopRail Fence</h3>
-              <p className="text-primary-foreground/80 mb-4">
+              <h3 className="text-2xl font-bold mb-2">Mighty <span>Fence</span></h3>
+              <p className="text-primaryBlack mb-4">
                 Columbia's premier fence installation company, serving the
                 community with quality craftsmanship for over 25 years.
               </p>
@@ -46,7 +46,7 @@ export const Footer = () => {
                     <Star key={i} className="w-4 h-4 fill-accent text-accent" />
                   ))}
                 </div>
-                <span className="text-sm text-primary-foreground/80">
+                <span className="text-sm text-primaryBlack">
                   5.0 Rating
                 </span>
               </div>
@@ -54,7 +54,7 @@ export const Footer = () => {
               <Link href="/contact">
                 <Button
                   variant="outline"
-                  className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+className="bg-primaryBlack text-white border-2 border-primaryBlack hover:bg-white hover:text-primaryBlack"
                 >
                   Get Free Quote
                 </Button>
@@ -70,7 +70,7 @@ export const Footer = () => {
                 <li key={service}>
                   <Link
                     href="/services"
-                    className="text-primary-foreground/80 hover:text-primary-foreground smooth-transition text-sm"
+                    className="text-primaryBlack hover:text-primaryBlack smooth-transition text-sm"
                   >
                     {service}
                   </Link>
@@ -85,13 +85,13 @@ export const Footer = () => {
             <ul className="space-y-2">
               {serviceAreas.map((area) => (
                 <li key={area}>
-                  <span className="text-primary-foreground/80 text-sm">
+                  <span className="text-primaryBlack text-sm">
                     {area}
                   </span>
                 </li>
               ))}
             </ul>
-            <p className="text-xs text-primary-foreground/60 mt-4">
+            <p className="text-xs text-primaryBlack mt-4">
               *Free estimates within 25 miles
             </p>
           </div>
@@ -101,26 +101,26 @@ export const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Get In Touch</h4>
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-accent flex-shrink-0" />
+                <Phone className="w-5 h-5 text-accent text-black flex-shrink-0" />
                 <div>
                   <a
                     href="tel:8037697747"
-                    className="text-primary-foreground font-semibold hover:text-accent smooth-transition"
+                    className="text-primaryBlack font-semibold hover:text-accent smooth-transition"
                   >
                     (803) 769-7747
                   </a>
-                  <p className="text-xs text-primary-foreground/80">
+                  <p className="text-xs text-primaryBlack">
                     Available 24/7
                   </p>
                 </div>
               </div>
 
               <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-accent flex-shrink-0" />
+                <Mail className="w-5 h-5 text-accent text-black flex-shrink-0" />
                 <div>
                   <a
                     href="mailto:info@toprailfence-columbia.com"
-                    className="text-primary-foreground hover:text-accent smooth-transition text-sm"
+                    className="text-primaryBlack hover:text-accent smooth-transition text-sm"
                   >
                     info@toprailfence-columbia.com
                   </a>
@@ -128,9 +128,9 @@ export const Footer = () => {
               </div>
 
               <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
+                <MapPin className="w-5 h-5 text-accent text-primaryBlack flex-shrink-0 mt-1" />
                 <div>
-                  <p className="text-primary-foreground text-sm">
+                  <p className="text-primaryBlack text-sm">
                     Serving Columbia &
                     <br />
                     Surrounding Areas
@@ -142,7 +142,7 @@ export const Footer = () => {
             {/* Business Hours */}
             <div className="mt-6 p-4 bg-primary-glow/20 rounded-lg">
               <h5 className="font-semibold text-sm mb-2">Business Hours</h5>
-              <div className="text-xs text-primary-foreground/80 space-y-1">
+              <div className="text-xs text-primaryBlack space-y-1">
                 <div className="flex justify-between">
                   <span>Mon - Fri:</span>
                   <span>7:00 AM - 6:00 PM</span>
@@ -165,7 +165,7 @@ export const Footer = () => {
       <div className="border-t border-primary-foreground/10">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-sm text-primary-foreground/80">
+            <div className="text-sm text-primaryBlack">
               © 2024 TopRail Fence Columbia. All rights reserved. Licensed &
               Insured.
             </div>
@@ -173,17 +173,17 @@ export const Footer = () => {
             <div className="flex items-center space-x-6 text-sm">
               <a
                 href="#"
-                className="text-primary-foreground/80 hover:text-primary-foreground smooth-transition"
+                className="text-primaryBlack hover:text-primary-foreground smooth-transition"
               >
                 Privacy Policy
               </a>
               <a
                 href="#"
-                className="text-primary-foreground/80 hover:text-primary-foreground smooth-transition"
+                className="text-primaryBlack hover:text-primary-foreground smooth-transition"
               >
                 Terms of Service
               </a>
-              <div className="text-primary-foreground/60">
+              <div className="text-primaryBlack">
                 License #ABC123456
               </div>
             </div>

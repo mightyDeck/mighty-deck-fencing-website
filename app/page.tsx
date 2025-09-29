@@ -48,11 +48,11 @@ const Home = () => {
             <div className="text-center mb-16 animate-fade-in">
               <h2 className="text-3xl md:text-4xl font-bold text-primaryBlack mb-6">
                 Our {" "}
-                <span className="bg-hero-gradient bg-clip-text text-primaryRed">
+                <span className="bg-hero-gradient bg-clip-text text-primaryBlack">
                  Fencing Services
                 </span>
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-semibold text-primaryBlue">
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-semibold text-primaryBlack">
                 Professional fence installation and repair services for
                 residential and commercial properties.
               </p>
@@ -67,18 +67,18 @@ const Home = () => {
                 >
                   <CardContent className="p-6 text-center">
                     <div className="bg-hero-gradient p-3 rounded-full w-fit mx-auto mb-4">
-                      <service.icon className="w-8 h-8 text-primary-foreground" />
+                      <service.icon className="w-8 h-8 text-primaryBlack" />
                     </div>
-                    <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary smooth-transition">
+                    <h3 className="text-xl font-bold text-PrimaryBlack mb-3 group-hover:text-primaryBlack smooth-transition">
                       {service.title}
                     </h3>
-                    <p className="text-muted-foreground mb-4">
+                    <p className="text-primaryBlack mb-4">
                       {service.description}
                     </p>
                     <Link href={service.link}>
                       <Button
                         variant="outline"
-                        className="group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary smooth-transition"
+                        className="group-hover:bg-primaryRed group-hover:text-primaryBlack group-hover:border-primary smooth-transition"
                       >
                         Learn More
                         <ArrowRight className="w-4 h-4 ml-2" />
@@ -93,7 +93,7 @@ const Home = () => {
               <Link href="/services">
                 <Button
                   size="lg"
-                  className="border-2 border-primaryBlack bg-primaryYellow hover:bg-primaryBlack hover:text-white text-black  text-lg px-8 py-6 "
+                  className="border-2 border-primaryBlack bg-primaryRed hover:bg-primaryRed hover:text-black text-black text-lg px-8 py-6 "
                 >
                   View All Services
                 </Button>
@@ -109,11 +109,11 @@ const Home = () => {
               <div className="space-y-6 animate-fade-in">
                 <h2 className="text-3xl md:text-4xl font-bold text-primaryBlack">
                   Why  Trusts{" "}
-                  <span className="bg-hero-gradient bg-clip-text  text-primaryRed">
-                   Mighty decksand fences
+                  <span className="bg-hero-gradient bg-clip-text  text-primaryBlack">
+                   Mighty<span className="text-primaryRed">Fences</span>
                   </span>
                 </h2>
-                <p className="text-lg text-primaryBlue font-semibold ">
+                <p className="text-lg text-primaryBlack font-semibold ">
                   With over 25 years of experience serving Columbia and
                   surrounding areas, we've built our reputation on quality
                   craftsmanship and exceptional customer service.
@@ -137,7 +137,7 @@ const Home = () => {
                   <Link href="/about">
                     <Button
                       size="lg"
-                      className="border-2 border-primaryBlack  bg-primaryYellow hover:bg-primaryBlack hover:text-white text-black  text-lg px-8 py-6"
+                      className="border-2 border-primaryBlack  bg-primaryRed hover:bg-primaryRed hover:text-black text-black  text-lg px-8 py-6"
                     >
                       Learn About Us
                     </Button>
@@ -146,7 +146,7 @@ const Home = () => {
                     <Button
                       variant="outline"
                       size="lg"
-                      className="border-2 border-primaryBlack  bg-primaryYellow hover:bg-primaryBlack hover:text-white text-black  text-lg px-8 py-6"
+                      className="border-2 border-primaryBlack  bg-primaryRed hover:bg-primaryRed hover:text-black text-black  text-lg px-8 py-6"
                     >
                       Get Free Estimate
                     </Button>
@@ -168,7 +168,7 @@ const Home = () => {
                 animate-fade-in"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <div className="text-3xl font-bold text-primaryRed mb-2">
+                    <div className="text-3xl font-bold text-primaryBlack mb-2">
                       {stat.number}
                     </div>
                     <div className="text-sm text-primaryBlack font-semibold">

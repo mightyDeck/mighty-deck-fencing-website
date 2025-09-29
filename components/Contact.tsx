@@ -267,54 +267,49 @@ export const Contact = () => {
           </div>
 
           {/* Contact Information */}
-          <div className="space-y-6 animate-slide-in-right">
-            {contactInfo.map((info, index) => (
-              <Card
-                key={info.title}
-                className="soft-shadow border-0 hover:shadow-elegant smooth-transition animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-hero-gradient p-3 rounded-lg flex-shrink-0">
-                      <info.icon className="w-6 h-6 text-primary-foreground" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-1">
-                        {info.title}
-                      </h3>
-                      <p className="text-lg text-primary font-medium mb-1">
-                        {info.details}
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        {info.subtitle}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-
-            {/* Emergency Notice */}
-            <Card className="bg-accent/10 border border-accent/20 soft-shadow">
-              <CardContent className="p-6 text-center">
-                <h3 className="font-bold text-foreground mb-2">
-                  Emergency Repairs?
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  We offer 24/7 emergency fence repair services for urgent
-                  situations.
-                </p>
-                <Button
-                  variant="outline"
-                  className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground"
-                  asChild
-                >
-                  <a href="tel:8037697747">Call Now: (803) 769-7747</a>
-                </Button>
-              </CardContent>
-            </Card>
+         <div className="space-y-6 animate-slide-in-right">
+  {contactInfo.map((info, index) => (
+    <Card
+      key={info.title}
+      className="soft-shadow border-0 hover:shadow-elegant smooth-transition animate-scale-in"
+      style={{ animationDelay: `${index * 0.1}s` }}
+    >
+      <CardContent className="p-6">
+        <div className="flex items-start space-x-4">
+          {/* Icon in red */}
+          <div className="p-3 rounded-lg flex-shrink-0">
+            <info.icon className="w-6 h-6 text-red-600" />
           </div>
+          <div>
+            {/* Headline in black */}
+            <h3 className="font-semibold text-black mb-1">{info.title}</h3>
+            <p className="text-lg text-muted-foreground font-medium mb-1">
+              {info.details}
+            </p>
+            <p className="text-sm text-muted-foreground">{info.subtitle}</p>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  ))}
+
+  {/* Emergency Notice */}
+  <Card className="bg-accent/10 border border-accent/20 soft-shadow">
+    <CardContent className="p-6 text-center">
+      <h3 className="font-bold text-black mb-2">Emergency Repairs?</h3>
+      <p className="text-sm text-muted-foreground mb-4">
+        We offer 24/7 emergency fence repair services for urgent situations.
+      </p>
+      <Button
+        className="w-full bg-red-600 text-black hover:bg-red-700 hover:text-black border-red-600"
+        asChild
+      >
+        <a href="tel:8037697747">Call Now: (803) 769-7747</a>
+      </Button>
+    </CardContent>
+  </Card>
+</div>
+
         </div>
       </div>
     </section>

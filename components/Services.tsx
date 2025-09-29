@@ -67,23 +67,22 @@ const additionalServices = [
     description: "Satisfaction guaranteed on all installations",
   },
 ];
-
 export const Services = () => {
   return (
     <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <div className="text-accent font-semibold text-sm tracking-wide uppercase mb-4">
+          <div className="text-primaryBlack font-semibold text-sm tracking-wide uppercase mb-4">
             Our Services
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
             Complete Fencing Solutions for{" "}
-            <span className="bg-hero-gradient bg-clip-text text-transparent">
+            <span className="bg-hero-gradient bg-clip-text textprimaryRed">
               Every Need
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-primaryBlack max-w-3xl mx-auto">
             From residential privacy fences to commercial security solutions, we
             provide expert installation and premium materials for lasting
             results.
@@ -113,7 +112,8 @@ export const Services = () => {
                 </div>
 
                 <div className="p-6 space-y-4">
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary smooth-transition">
+                  {/* Heading → black */}
+                  <h3 className="text-xl font-bold text-black group-hover:text-red-600 smooth-transition">
                     {service.title}
                   </h3>
                   <p className="text-muted-foreground">{service.description}</p>
@@ -124,15 +124,15 @@ export const Services = () => {
                         key={feature}
                         className="flex items-center text-sm text-muted-foreground"
                       >
-                        <CheckCircle className="w-4 h-4 mr-2 text-primary flex-shrink-0" />
+                        <CheckCircle className="w-4 h-4 mr-2 text-red-600 flex-shrink-0" />
                         {feature}
                       </li>
                     ))}
                   </ul>
 
+                  {/* Button → red bg + black text */}
                   <Button
-                    variant="outline"
-                    className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary smooth-transition"
+                    className="w-full bg-red-600 text-black border-2 border-red-600 hover:bg-black hover:text-white smooth-transition"
                   >
                     Learn More
                   </Button>
@@ -150,13 +150,14 @@ export const Services = () => {
               className="text-center p-6 rounded-xl hover:bg-muted smooth-transition animate-fade-in"
               style={{ animationDelay: `${(index + 3) * 0.1}s` }}
             >
-              <div className="bg-hero-gradient p-3 rounded-full w-fit mx-auto mb-4">
-                <service.icon className="w-6 h-6 text-primary-foreground" />
+              <div className="bg-primaryRed p-3 rounded-full w-fit mx-auto mb-4">
+                <service.icon className="w-6 h-6 text-red" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">
+              {/* Heading → black */}
+              <h3 className="text-lg font-semibold text-black mb-2">
                 {service.title}
               </h3>
-              <p className="text-muted-foreground text-sm">
+              <p className="text-primaryBlack text-sm">
                 {service.description}
               </p>
             </div>
@@ -168,7 +169,7 @@ export const Services = () => {
           <Link href="/contact">
             <Button
               size="lg"
-              className="bg-hero-gradient hover:shadow-accent text-lg px-8 py-6"
+              className="bg-red-600 text-black border-2 border-red-600 hover:bg-black hover:text-white text-lg px-8 py-6"
             >
               Get Your Free Quote Today
             </Button>
