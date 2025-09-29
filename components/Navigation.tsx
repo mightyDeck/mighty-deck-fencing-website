@@ -16,9 +16,9 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <div className="text-2xl font-bold text-primary">TopRail Fence</div>
+            <div className="text-2xl font-bold font-montserrat text-primaryBlack  ">Mighty    <span className="text-primaryRed font-montserrat">  decksand fences</span></div>
             <div className="ml-2 text-sm text-muted-foreground hidden sm:block">
-              Columbia
+              
             </div>
           </Link>
 
@@ -62,13 +62,13 @@ export const Navigation = () => {
               href="tel:8037697747"
               className="flex items-center text-primary hover:text-primary-glow smooth-transition"
             >
-              <Phone className="w-4 h-4 mr-2" />
-              <span className="font-semibold">(803) 769-7747</span>
+              <Phone className="w-4 h-4 mr-2 text-primaryRed" />
+              <span className="font-semibold text-primaryRed">(803) 769-7747</span>
             </a>
             <Link href="/contact">
               <Button
                 variant="default"
-                className="bg-hero-gradient hover:shadow-accent smooth-transition"
+                className="border-2 border-primaryBlack text-primaryBlack bg-primaryYellow hover:bg-primaryBlack hover:text-white smooth-transition"
               >
                 Free Estimate
               </Button>

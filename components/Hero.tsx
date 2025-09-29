@@ -14,20 +14,20 @@ export const Hero = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-2 text-accent">
                 <Award className="w-5 h-5" />
-                <span className="font-semibold text-sm tracking-wide uppercase">
+                <span className="font-semibold text-sm  font-boldtracking-wide uppercase text-primaryRed">
                   Columbia's Premier Fence Company
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primaryBlack leading-tight">
                 Professional{" "}
-                <span className="bg-hero-gradient bg-clip-text text-transparent">
+                <span className="bg-hero-gradient bg-clip-text text-primaryYellow text-transparent">
                   Fence Installation
                 </span>{" "}
                 You Can Trust
               </h1>
 
-              <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
+              <p className="text-xl  max-w-2xl leading-relaxed text-primaryRed">
                 Transform your property with premium fencing solutions. Our
                 experienced team delivers exceptional craftsmanship for
                 residential, commercial, and agricultural projects throughout
@@ -37,15 +37,15 @@ export const Hero = () => {
 
             {/* Trust Indicators */}
             <div className="flex flex-wrap gap-6 text-sm">
-              <div className="flex items-center text-muted-foreground">
+              <div className="flex items-center font-bold text-primaryBlue">
                 <Shield className="w-4 h-4 mr-2 text-primary" />
                 Licensed & Insured
               </div>
-              <div className="flex items-center text-muted-foreground">
+              <div className="flex items-center font-bold text-primaryBlue">
                 <Users className="w-4 h-4 mr-2 text-primary" />
                 500+ Happy Customers
               </div>
-              <div className="flex items-center text-muted-foreground">
+              <div className="flex items-center font-bold text-primaryBlue">
                 <Award className="w-4 h-4 mr-2 text-primary" />
                 25+ Years Experience
               </div>
@@ -56,7 +56,7 @@ export const Hero = () => {
               <Link href="/contact">
                 <Button
                   size="lg"
-                  className="bg-hero-gradient hover:shadow-accent text-lg px-8 py-6 animate-glow"
+                className="border-2 border-primary text-primaryBlack  hover:bg-primaryBlack hover:text-white bg-primaryYellow text-lg px-8 py-6"
                 >
                   Get Free Estimate
                 </Button>
@@ -64,7 +64,7 @@ export const Hero = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-6"
+                className="border-2 border-primary text-primaryBlack  hover:bg-primaryBlack bg-primaryYellow text-lg px-8 py-6"
                 asChild
               >
                 <a href="tel:8037697747" className="flex items-center">
@@ -74,7 +74,7 @@ export const Hero = () => {
               </Button>
             </div>
 
-            <div className="text-sm text-muted-foreground">
+            <div className="text-sm font-bold text-primaryBlue">
               Available 24/7 • Free Estimates • Same-Day Response
             </div>
           </div>

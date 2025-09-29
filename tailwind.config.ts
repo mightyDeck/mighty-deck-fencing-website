@@ -19,6 +19,10 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+         primaryRed: "rgb(218,33,40)",     // Primary Red
+        primaryBlue: "rgb(0,180,235)",   // Primary Blue
+        primaryYellow: "rgb(255,209,0)", // Primary Yellow
+        primaryBlack: "rgb(0,0,0)",      // Primary Black
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -60,7 +64,9 @@ export default {
           "Oxygen",
           "Ubuntu",
           "sans-serif",
+          
         ],
+      montserrat: ["var(--font-montserrat)", "sans-serif"],
       },
       backgroundImage: {
         'hero-gradient': 'var(--gradient-hero)',

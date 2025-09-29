@@ -46,13 +46,13 @@ const Home = () => {
         <section className="py-20 bg-subtle-gradient">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16 animate-fade-in">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                Our Fencing{" "}
-                <span className="bg-hero-gradient bg-clip-text text-transparent">
-                  Services
+              <h2 className="text-3xl md:text-4xl font-bold text-primaryBlack mb-6">
+                Our {" "}
+                <span className="bg-hero-gradient bg-clip-text text-primaryRed">
+                 Fencing Services
                 </span>
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-semibold text-primaryBlue">
                 Professional fence installation and repair services for
                 residential and commercial properties.
               </p>
@@ -93,7 +93,7 @@ const Home = () => {
               <Link href="/services">
                 <Button
                   size="lg"
-                  className="bg-hero-gradient hover:shadow-accent text-lg px-8 py-6"
+                  className="border-2 border-primaryBlack bg-primaryYellow hover:bg-primaryBlack hover:text-white text-black  text-lg px-8 py-6 "
                 >
                   View All Services
                 </Button>
@@ -107,13 +107,13 @@ const Home = () => {
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6 animate-fade-in">
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                  Why Columbia Trusts{" "}
-                  <span className="bg-hero-gradient bg-clip-text text-transparent">
-                    TopRail Fence
+                <h2 className="text-3xl md:text-4xl font-bold text-primaryBlack">
+                  Why  Trusts{" "}
+                  <span className="bg-hero-gradient bg-clip-text  text-primaryRed">
+                   Mighty decksand fences
                   </span>
                 </h2>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-lg text-primaryBlue font-semibold ">
                   With over 25 years of experience serving Columbia and
                   surrounding areas, we've built our reputation on quality
                   craftsmanship and exceptional customer service.
@@ -127,8 +127,8 @@ const Home = () => {
                     "24/7 Emergency Repair Services",
                   ].map((feature) => (
                     <div key={feature} className="flex items-center space-x-3">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                      <span className="text-muted-foreground">{feature}</span>
+                      <CheckCircle className="w-5 h-5 text-primaryBlack flex-shrink-0" />
+                      <span className="text-PrimaryBlack">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -137,7 +137,7 @@ const Home = () => {
                   <Link href="/about">
                     <Button
                       size="lg"
-                      className="bg-hero-gradient hover:shadow-accent text-lg px-8 py-6"
+                      className="border-2 border-primaryBlack  bg-primaryYellow hover:bg-primaryBlack hover:text-white text-black  text-lg px-8 py-6"
                     >
                       Learn About Us
                     </Button>
@@ -146,7 +146,7 @@ const Home = () => {
                     <Button
                       variant="outline"
                       size="lg"
-                      className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-6"
+                      className="border-2 border-primaryBlack  bg-primaryYellow hover:bg-primaryBlack hover:text-white text-black  text-lg px-8 py-6"
                     >
                       Get Free Estimate
                     </Button>
@@ -163,13 +163,15 @@ const Home = () => {
                 ].map((stat, index) => (
                   <div
                     key={stat.label}
-                    className="bg-card p-6 rounded-xl soft-shadow text-center hover:shadow-elegant smooth-transition animate-scale-in"
+                    className="bg-card  border-4 p-6 rounded-xl shadow-lg text-center 
+                hover:shadow-2xl hover:scale-105 transition-transform duration-300 ease-in-out 
+                animate-fade-in"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <div className="text-3xl font-bold text-primary mb-2">
+                    <div className="text-3xl font-bold text-primaryRed mb-2">
                       {stat.number}
                     </div>
-                    <div className="text-sm text-muted-foreground font-medium">
+                    <div className="text-sm text-primaryBlack font-semibold">
                       {stat.label}
                     </div>
                   </div>
