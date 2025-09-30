@@ -104,7 +104,7 @@ const Home = () => {
         </section>
 
         {/* Why Choose Us */}
-        <section className="py-20 bg-primaryRed/5">
+        <section className="py-20 bg-primaryBlue/5">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left Content */}

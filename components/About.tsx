@@ -44,7 +44,7 @@ export const About = () => {
               </h2>
 
               <p className="text-lg text-primaryBlack/80 leading-relaxed">
-                For over 25 years, TopRail Fence Columbia has been the area's
+                For over 25 years, Mighty Fence Columbia has been the area's
                 premier choice for quality fence installation and service. Our
                 commitment to excellence, combined with superior craftsmanship
                 and premium materials, has earned us the trust of hundreds of
@@ -63,7 +63,7 @@ export const About = () => {
             {/* Achievements */}
             <div className="space-y-3">
               <h3 className="text-xl font-semibold text-primaryBlack mb-4">
-                Why Choose TopRail Fence?
+                Why Choose Mighty Fence?
               </h3>
               <div className="grid sm:grid-cols-2 gap-3">
                 {achievements.map((achievement) => (
@@ -138,7 +138,7 @@ export const About = () => {
               that stands the test of time."
             </p>
             <div className="mt-6 text-sm text-primaryBlack/70 font-medium">
-              — The TopRail Fence Columbia Team
+              — The Mighty Fence Columbia Team
             </div>
           </div>
         </div>
