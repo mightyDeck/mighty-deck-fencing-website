@@ -97,7 +97,8 @@ export const Footer = () => {
             <h4 className="text-lg font-semibold mb-4 text-primaryBlack">Service Areas</h4>
             <ul className="space-y-2">
               {serviceAreas.map((area) => (
-                <li key={area}>
+                // <li key={area}>
+                <li>
                   <span className="text-primaryBlack text-sm">{area}</span>
                 </li>
               ))}
