@@ -5,7 +5,7 @@ import { QuoteForm } from "./QuoteForm";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center bg-gradient-to-r from-red-100 via-red-200 to-red-300 pt-7">
+    <section className="relative min-h-screen flex items-center bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300 pt-7">
       <div className="container mx-auto px-4 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-fade-in">
@@ -18,7 +18,7 @@ export const Hero = () => {
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight">
-                Professional <span className="bg-red-600 bg-clip-text text-transparent">Fence Installation</span> You Can Trust
+                Professional <span className="bg-primaryBlue bg-clip-text text-transparent">Fence Installation</span> You Can Trust
               </h1>
 
               <p className="text-xl max-w-2xl leading-relaxed text-primaryBlack">

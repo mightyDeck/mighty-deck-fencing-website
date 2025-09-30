@@ -11,7 +11,7 @@ export const Navigation = () => {
   const location = usePathname();
 
   return (
-    <nav className="fixed top-0 w-full bg-red-100/95 backdrop-blur-md border-b border-red-300 z-50 smooth-transition">
+    <nav className="fixed top-0 w-full bg-blue-100/95 backdrop-blur-md border-b border-blue-300 z-50 smooth-transition">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
