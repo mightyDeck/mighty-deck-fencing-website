@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
-import { Star, StarHalf, StarOutline } from "lucide-react";
+import { Star, StarHalf } from "lucide-react";
 
 const services = [
   "Residential Fencing",
