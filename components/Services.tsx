@@ -2,30 +2,30 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Home, Building, Shield, Hammer, Wrench, CheckCircle } from "lucide-react";
 import Link from "next/link";
-import privacyFence from "@/assets/privacy-fence.jpg";
-import commercialFence from "@/assets/commercial-fence.jpg";
-import vinylFence from "@/assets/vinyl-fence.jpg";
+// import privacyFence from "@/assets/privacy-fence.jpg";
+// import commercialFence from "@/assets/commercial-fence.jpg";
+// import vinylFence from "@/assets/vinyl-fence.jpg";
 
 const services = [
   {
     icon: Home,
     title: "Residential Fencing",
     description: "Beautiful and functional fencing solutions for your home, from privacy fences to decorative borders.",
-    image: privacyFence,
+    image: "assets/privacy-fence.jpg",
     features: ["Privacy Fences", "Picket Fences", "Pool Fencing", "Garden Borders"],
   },
   {
     icon: Building,
     title: "Commercial Fencing",
     description: "Professional-grade security and boundary solutions for businesses and industrial properties.",
-    image: commercialFence,
+    image: "assets/commercial-fence.jpg",
     features: ["Chain Link", "Security Fencing", "Access Gates", "Perimeter Control"],
   },
   {
     icon: Shield,
     title: "Premium Materials",
     description: "High-quality wood, vinyl, aluminum, and chain link options to match any style and budget.",
-    image: vinylFence,
+    image: "assets/vinyl-fence.jpg",
     features: ["Wood Fencing", "Vinyl Fencing", "Aluminum Rails", "Chain Link"],
   },
 ];
