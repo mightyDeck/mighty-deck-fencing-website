@@ -5,7 +5,7 @@ import { QuoteForm } from "./QuoteForm";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center bg-gradient-to-r from-red-100 via-red-200 to-red-300 pt-7">
+    <section className="relative min-h-screen flex items-center bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300 pt-7">
       <div className="container mx-auto px-4 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-fade-in">

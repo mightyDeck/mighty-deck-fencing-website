@@ -26,7 +26,8 @@ const serviceAreas = [
 
 export const Footer = () => {
   return (
-    <footer className="bg-primaryRed/10 text-primaryBlack">
+    <footer className=" text-primaryBlack">
+      {/* <footer className="bg-primaryRed/10 text-primaryBlack"> */}
       {/* Main Footer */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -53,7 +54,7 @@ export const Footer = () => {
               <Link href="/contact">
                 <Button
                   variant="outline"
-                  className="bg-primaryRed text-white border-2 border-primaryRed hover:bg-white hover:text-primaryRed"
+                  className="bg-primaryBlue text-white border-2 border-primaryBlue hover:bg-white hover:text-primaryBlue"
                 >
                   Get Free Quote
                 </Button>
@@ -131,7 +132,9 @@ export const Footer = () => {
             </div>
 
             {/* Business Hours */}
-            <div className="mt-6 p-4 bg-primaryRed/10 rounded-lg">
+            <div className="mt-6 p-4 bg-primaryBlue/40  rounded-lg">
+            {/* <div className="mt-6 p-4 bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300 rounded-lg"> */}
+            {/* <div className="mt-6 p-4 bg-primaryRed/10 rounded-lg"> */}
               <h5 className="font-semibold text-sm mb-2 text-primaryBlack">Business Hours</h5>
               <div className="text-xs text-primaryBlack space-y-1">
                 <div className="flex justify-between">
@@ -157,7 +160,7 @@ export const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-sm text-primaryBlack">
-              © 2024 TopRail Fence Columbia. All rights reserved. Licensed & Insured.
+              © 2025 Mighty Decks And Fences. All rights reserved. Licensed & Insured.
             </div>
 
             <div className="flex items-center space-x-6 text-sm">

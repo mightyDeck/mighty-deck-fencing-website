@@ -127,7 +127,7 @@ export const QuoteForm = () => {
             className="col-span-2"
           />
 
-          <div className="flex items-start space-x-4 text-sm col-span-2">
+          {/* <div className="flex items-start space-x-4 text-sm col-span-2">
             <input
               name="consent"
               type="checkbox"
@@ -144,7 +144,25 @@ export const QuoteForm = () => {
               apply. Reply STOP to opt-out. For assistance email
               admin@mightyfences.com.
             </span>
-          </div>
+          </div> */}
+          <div className="flex items-start space-x-4 text-sm col-span-2">
+  <input
+    name="consent"
+    type="checkbox"
+    checked={formData.consent}
+    onChange={handleChange}
+    className="mt-1"
+    required
+  />
+  <span className="text-xs text-gray-600">
+    By checking this box, I consent to receive SMS/text messages via
+    automated technology from Mighty Fences for appointment reminders,
+    follow-ups, order confirmations, and other notifications. Message
+    frequency may vary. Standard messaging & data rates may apply. Reply
+    STOP to opt-out. For assistance email admin@mightyfences.com.
+  </span>
+</div>
+
 
           <div className="col-span-2">
             <Button
