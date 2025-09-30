@@ -119,10 +119,10 @@ className="bg-primaryBlack text-white border-2 border-primaryBlack hover:bg-whit
                 <Mail className="w-5 h-5 text-accent text-black flex-shrink-0" />
                 <div>
                   <a
-                    href="mailto:info@toprailfence-columbia.com"
+                    href="mailto:admin@mightydecksandfences.com"
                     className="text-primaryBlack hover:text-accent smooth-transition text-sm"
                   >
-                    info@toprailfence-columbia.com
+                    admin@mightydecksandfences.com
                   </a>
                 </div>
               </div>

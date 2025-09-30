@@ -10,7 +10,7 @@ import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
 const contactInfo = [
   { icon: Phone, title: "Call Us Today", details: "(803) 769-7747", subtitle: "Available 24/7 for emergencies" },
-  { icon: Mail, title: "Email Us", details: "info@toprailfence-columbia.com", subtitle: "We respond within 24 hours" },
+  { icon: Mail, title: "Email Us", details: "admin@mightydecksandfences.com", subtitle: "We respond within 24 hours" },
   { icon: MapPin, title: "Service Area", details: "Columbia & Surrounding Areas", subtitle: "Free estimates within 25 miles" },
   { icon: Clock, title: "Business Hours", details: "Mon-Fri: 7AM-6PM", subtitle: "Sat: 8AM-4PM, Sun: Emergency only" },
 ];
