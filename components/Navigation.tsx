@@ -11,13 +11,13 @@ export const Navigation = () => {
   const location = usePathname();
 
   return (
-    <nav className="fixed top-0 w-full bg-blue-100/95 backdrop-blur-md border-b border-blue-300 z-50 smooth-transition">
+    <nav className="fixed top-0 w-full bg-red-100/95 backdrop-blur-md border-b border-red-300 z-50 smooth-transition">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <div className="text-2xl font-bold font-montserrat text-primaryBlack">
-              Mighty<span className="text-primaryBlue font-montserrat">Fences</span>
+              Mighty<span className="text-primaryRed font-montserrat">Fences</span>
             </div>
             <div className="ml-2 text-sm text-muted-foreground hidden sm:block"></div>
           </Link>
@@ -28,8 +28,8 @@ export const Navigation = () => {
               href="/services"
               className={`smooth-transition ${
                 location === "/services"
-                  ? "text-primaryBlue font-semibold"
-                  : "text-foreground hover:text-primaryBlue"
+                  ? "text-primaryRed font-semibold"
+                  : "text-foreground hover:text-primaryRed"
               }`}
             >
               Services
@@ -38,8 +38,8 @@ export const Navigation = () => {
               href="/about"
               className={`smooth-transition ${
                 location === "/about"
-                  ? "text-primaryBlue font-semibold"
-                  : "text-foreground hover:text-primaryBlue"
+                  ? "text-primaryRed font-semibold"
+                  : "text-foreground hover:text-primaryRed"
               }`}
             >
               About
@@ -48,8 +48,8 @@ export const Navigation = () => {
               href="/contact"
               className={`smooth-transition ${
                 location === "/contact"
-                  ? "text-primaryBlue font-semibold"
-                  : "text-foreground hover:text-primaryBlue"
+                  ? "text-primaryRed font-semibold"
+                  : "text-foreground hover:text-primaryRed"
               }`}
             >
               Contact
@@ -60,15 +60,15 @@ export const Navigation = () => {
           <div className="hidden md:flex items-center space-x-4">
             <a
               href="tel:8037697747"
-              className="flex items-center text-primaryBlue hover:text-primary-glow smooth-transition"
+              className="flex items-center text-primaryRed hover:text-primary-glow smooth-transition"
             >
-              <Phone className="w-4 h-4 mr-2 text-primaryBlue" />
+              <Phone className="w-4 h-4 mr-2 text-primaryRed" />
               <span className="font-semibold text-primaryBlack">(803) 769-7747</span>
             </a>
             <Link href="/contact">
               <Button
                 variant="default"
-                className="border-2 border-primaryBlue text-white bg-primaryBlue hover:bg-primaryBlue/90 hover:text-white smooth-transition"
+                className="border-2 border-primaryRed text-white bg-primaryRed hover:bg-primaryRed/90 hover:text-white smooth-transition"
               >
                 Free Estimate
               </Button>
@@ -96,8 +96,8 @@ export const Navigation = () => {
                 href="/services"
                 className={`block px-3 py-2 smooth-transition ${
                   location === "/services"
-                    ? "text-primaryBlue font-semibold"
-                    : "text-foreground hover:text-primaryBlue"
+                    ? "text-primaryRed font-semibold"
+                    : "text-foreground hover:text-primaryRed"
                 }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -107,8 +107,8 @@ export const Navigation = () => {
                 href="/about"
                 className={`block px-3 py-2 smooth-transition ${
                   location === "/about"
-                    ? "text-primaryBlue font-semibold"
-                    : "text-foreground hover:text-primaryBlue"
+                    ? "text-primaryRed font-semibold"
+                    : "text-foreground hover:text-primaryRed"
                 }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -118,8 +118,8 @@ export const Navigation = () => {
                 href="/contact"
                 className={`block px-3 py-2 smooth-transition ${
                   location === "/contact"
-                    ? "text-primaryBlue font-semibold"
-                    : "text-foreground hover:text-primaryBlue"
+                    ? "text-primaryRed font-semibold"
+                    : "text-foreground hover:text-primaryRed"
                 }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -129,13 +129,13 @@ export const Navigation = () => {
               <div className="px-3 py-2 border-t border-border">
                 <a
                   href="tel:8037697747"
-                  className="flex items-center text-primaryBlue font-semibold mb-3"
+                  className="flex items-center text-primaryRed font-semibold mb-3"
                 >
                   <Phone className="w-4 h-4 mr-2" />
                   (803) 769-7747
                 </a>
                 <Link href="/contact" onClick={() => setIsOpen(false)}>
-                  <Button className="w-full bg-primaryBlue text-white hover:bg-primaryBlue/90">
+                  <Button className="w-full bg-primaryRed text-white hover:bg-primaryRed/90">
                     Free Estimate
                   </Button>
                 </Link>

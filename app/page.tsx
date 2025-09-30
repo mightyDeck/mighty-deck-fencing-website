@@ -43,12 +43,12 @@ const Home = () => {
         <Hero />
 
         {/* Quick Services Overview */}
-        <section className="py-20 bg-gradient-to-b from-primaryBlue/10 via-white to-white">
+        <section className="py-20 bg-gradient-to-b from-primaryRed/10 via-white to-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16 animate-fade-in">
               <h2 className="text-3xl md:text-4xl font-extrabold text-primaryBlack mb-6">
                 Our{" "}
-                <span className="bg-gradient-to-r from-primaryBlue to-primaryYellow bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primaryRed to-primaryYellow bg-clip-text text-transparent">
                   Fencing Services
                 </span>
               </h2>
@@ -63,12 +63,12 @@ const Home = () => {
               {quickServices.map((service, index) => (
                 <Card
                   key={service.title}
-                  className="group hover:shadow-xl transition-all duration-300 border border-primaryBlue/20 rounded-2xl"
+                  className="group hover:shadow-xl transition-all duration-300 border border-primaryRed/20 rounded-2xl"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <CardContent className="p-6 text-center">
-                    <div className="bg-primaryBlue/10 p-4 rounded-full w-fit mx-auto mb-4 group-hover:bg-primaryBlue/20 transition">
-                      <service.icon className="w-8 h-8 text-primaryBlue" />
+                    <div className="bg-primaryRed/10 p-4 rounded-full w-fit mx-auto mb-4 group-hover:bg-primaryRed/20 transition">
+                      <service.icon className="w-8 h-8 text-primaryRed" />
                     </div>
                     <h3 className="text-xl font-bold text-primaryBlack mb-3">
                       {service.title}
@@ -79,7 +79,7 @@ const Home = () => {
                     <Link href={service.link}>
                       <Button
                         variant="outline"
-                        className="border-primaryBlue text-primaryBlue hover:bg-primaryBlue hover:text-white transition"
+                        className="border-primaryRed text-primaryRed hover:bg-primaryRed hover:text-white transition"
                       >
                         Learn More
                         <ArrowRight className="w-4 h-4 ml-2" />
@@ -94,7 +94,7 @@ const Home = () => {
               <Link href="/services">
                 <Button
                   size="lg"
-                  className="bg-primaryBlue text-white hover:bg-primaryRed transition font-semibold px-8 py-6 text-lg rounded-xl"
+                  className="bg-primaryRed text-white hover:bg-primaryRed transition font-semibold px-8 py-6 text-lg rounded-xl"
                 >
                   View All Services
                 </Button>
@@ -104,14 +104,14 @@ const Home = () => {
         </section>
 
         {/* Why Choose Us */}
-        <section className="py-20 bg-primaryBlue/5">
+        <section className="py-20 bg-primaryRed/5">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left Content */}
               <div className="space-y-6 animate-fade-in">
                 <h2 className="text-3xl md:text-4xl font-extrabold text-primaryBlack">
                   Why Columbia Trusts{" "}
-                  <span className="bg-gradient-to-r from-primaryBlue to-primaryRed bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-primaryRed to-primaryRed bg-clip-text text-transparent">
                     MightyFences
                   </span>
                 </h2>
@@ -128,7 +128,7 @@ const Home = () => {
                     "24/7 Emergency Fence Repair Services",
                   ].map((feature) => (
                     <div key={feature} className="flex items-center space-x-3">
-                      <CheckCircle className="w-5 h-5 text-primaryBlue flex-shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-primaryRed flex-shrink-0" />
                       <span className="text-primaryBlack font-medium">
                         {feature}
                       </span>
@@ -140,7 +140,7 @@ const Home = () => {
                   <Link href="/about">
                     <Button
                       size="lg"
-                      className="bg-primaryBlue text-white hover:bg-primaryRed transition px-8 py-6 text-lg rounded-xl"
+                      className="bg-primaryRed text-white hover:bg-primaryRed transition px-8 py-6 text-lg rounded-xl"
                     >
                       Learn About Us
                     </Button>
@@ -149,7 +149,7 @@ const Home = () => {
                     <Button
                       variant="outline"
                       size="lg"
-                      className="border-primaryBlue text-primaryBlue hover:bg-primaryBlue hover:text-white transition px-8 py-6 text-lg rounded-xl"
+                      className="border-primaryRed text-primaryRed hover:bg-primaryRed hover:text-white transition px-8 py-6 text-lg rounded-xl"
                     >
                       Get Free Estimate
                     </Button>
@@ -167,11 +167,11 @@ const Home = () => {
                 ].map((stat, index) => (
                   <div
                     key={stat.label}
-                    className="bg-white border border-primaryBlue/20 p-6 rounded-xl shadow-md 
+                    className="bg-white border border-primaryRed/20 p-6 rounded-xl shadow-md 
                     hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <div className="text-3xl font-bold text-primaryBlue mb-2">
+                    <div className="text-3xl font-bold text-primaryRed mb-2">
                       {stat.number}
                     </div>
                     <div className="text-sm text-primaryBlack font-medium">

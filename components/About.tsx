@@ -23,7 +23,7 @@ const achievements = [
 
 export const About = () => {
   return (
-    <section id="about" className="py-20 bg-primaryBlue/5">
+    <section id="about" className="py-20 bg-primaryRed/5">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -31,14 +31,14 @@ export const About = () => {
             <div className="space-y-4">
               <Badge
                 variant="secondary"
-                className="bg-primaryBlue text-white px-4 py-1"
+                className="bg-primaryRed text-white px-4 py-1"
               >
                 About Mighty Fences
               </Badge>
 
               <h2 className="text-4xl md:text-5xl font-bold text-primaryBlack">
                 Columbia's Most Trusted{" "}
-                <span className="bg-gradient-to-r from-primaryBlue to-primaryRed bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primaryRed to-primaryRed bg-clip-text text-transparent">
                   Fence Professionals
                 </span>
               </h2>
@@ -71,7 +71,7 @@ export const About = () => {
                     key={achievement}
                     className="flex items-center space-x-3"
                   >
-                    <CheckCircle className="w-5 h-5 text-primaryBlue flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-primaryRed flex-shrink-0" />
                     <span className="text-primaryBlack/70 text-sm">
                       {achievement}
                     </span>
@@ -85,7 +85,7 @@ export const About = () => {
               <Link href="/contact">
                 <Button
                   size="lg"
-                  className="bg-primaryBlue text-white hover:bg-primaryRed transition font-semibold px-8 py-6 rounded-xl text-lg"
+                  className="bg-primaryRed text-white hover:bg-primaryRed transition font-semibold px-8 py-6 rounded-xl text-lg"
                 >
                   Request Free Consultation
                 </Button>
@@ -94,7 +94,7 @@ export const About = () => {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-primaryBlue text-primaryBlue hover:bg-primaryBlue hover:text-white transition font-semibold px-8 py-6 rounded-xl text-lg"
+                  className="border-primaryRed text-primaryRed hover:bg-primaryRed hover:text-white transition font-semibold px-8 py-6 rounded-xl text-lg"
                 >
                   View Our Services
                 </Button>
@@ -107,13 +107,13 @@ export const About = () => {
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
-                className="bg-white border border-primaryBlue/20 p-6 rounded-xl shadow-md text-center hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out animate-scale-in"
+                className="bg-white border border-primaryRed/20 p-6 rounded-xl shadow-md text-center hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out animate-scale-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="bg-primaryBlue/10 p-3 rounded-full w-fit mx-auto mb-4">
-                  <stat.icon className="w-6 h-6 text-primaryBlue" />
+                <div className="bg-primaryRed/10 p-3 rounded-full w-fit mx-auto mb-4">
+                  <stat.icon className="w-6 h-6 text-primaryRed" />
                 </div>
-                <div className="text-3xl font-bold text-primaryBlue mb-2">
+                <div className="text-3xl font-bold text-primaryRed mb-2">
                   {stat.number}
                 </div>
                 <div className="text-sm text-primaryBlack/80 font-medium">
@@ -126,8 +126,8 @@ export const About = () => {
 
         {/* Mission Statement */}
         <div className="mt-20 text-center max-w-4xl mx-auto animate-fade-in">
-          <div className="bg-primaryBlue/10 border border-primaryBlue/20 rounded-2xl p-8 md:p-12">
-            <Award className="w-12 h-12 text-primaryBlue mx-auto mb-6" />
+          <div className="bg-primaryRed/10 border border-primaryRed/20 rounded-2xl p-8 md:p-12">
+            <Award className="w-12 h-12 text-primaryRed mx-auto mb-6" />
             <h3 className="text-2xl md:text-3xl font-bold text-primaryBlack mb-6">
               Our Mission
             </h3>

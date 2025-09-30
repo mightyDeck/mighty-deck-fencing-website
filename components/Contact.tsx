@@ -48,15 +48,15 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-primaryBlue/10">
+    <section id="contact" className="py-20 bg-primaryRed/10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <div className="text-primaryBlue font-semibold text-sm tracking-wide uppercase mb-4">
+          <div className="text-primaryRed font-semibold text-sm tracking-wide uppercase mb-4">
             Get Your Free Estimate
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-primaryBlack mb-6">
             Ready to Transform Your{" "}
-            <span className="bg-gradient-to-r from-primaryBlue to-primaryRed bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primaryRed to-primaryRed bg-clip-text text-transparent">
               Property?
             </span>
           </h2>
@@ -175,7 +175,7 @@ export const Contact = () => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-primaryBlue hover:bg-primaryRed text-white hover:text-black text-lg py-6 smooth-transition"
+                    className="w-full bg-primaryRed hover:bg-primaryRed text-white hover:text-black text-lg py-6 smooth-transition"
                   >
                     {isSubmitting ? (
                       "Submitting..."
@@ -205,8 +205,8 @@ export const Contact = () => {
               >
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4">
-                    <div className="p-3 rounded-lg flex-shrink-0 bg-primaryBlue/10">
-                      <info.icon className="w-6 h-6 text-primaryBlue" />
+                    <div className="p-3 rounded-lg flex-shrink-0 bg-primaryRed/10">
+                      <info.icon className="w-6 h-6 text-primaryRed" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-primaryBlack mb-1">{info.title}</h3>
@@ -219,7 +219,7 @@ export const Contact = () => {
             ))}
 
             {/* Emergency Notice */}
-            <Card className="bg-primaryBlue/10 border border-primaryBlue/20 soft-shadow">
+            <Card className="bg-primaryRed/10 border border-primaryRed/20 soft-shadow">
               <CardContent className="p-6 text-center">
                 <h3 className="font-bold text-primaryBlack mb-2">Emergency Repairs?</h3>
                 <p className="text-sm text-primaryBlack/70 mb-4">

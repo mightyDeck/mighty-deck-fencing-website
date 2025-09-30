@@ -26,14 +26,14 @@ const serviceAreas = [
 
 export const Footer = () => {
   return (
-    <footer className="bg-primaryBlue/10 text-primaryBlack">
+    <footer className="bg-primaryRed/10 text-primaryBlack">
       {/* Main Footer */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-6">
             <div>
               <h3 className="text-2xl font-bold mb-2">
-                Mighty <span className="text-primaryBlue">Fence</span>
+                Mighty <span className="text-primaryRed">Fence</span>
               </h3>
               <p className="text-primaryBlack mb-4">
                 Columbia's premier fence installation company, serving the
@@ -44,7 +44,7 @@ export const Footer = () => {
               <div className="flex items-center space-x-2 mb-4">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primaryBlue text-primaryBlue" />
+                    <Star key={i} className="w-4 h-4 fill-primaryRed text-primaryRed" />
                   ))}
                 </div>
                 <span className="text-sm text-primaryBlack">5.0 Rating</span>
@@ -53,7 +53,7 @@ export const Footer = () => {
               <Link href="/contact">
                 <Button
                   variant="outline"
-                  className="bg-primaryBlue text-white border-2 border-primaryBlue hover:bg-white hover:text-primaryBlue"
+                  className="bg-primaryRed text-white border-2 border-primaryRed hover:bg-white hover:text-primaryRed"
                 >
                   Get Free Quote
                 </Button>
@@ -69,7 +69,7 @@ export const Footer = () => {
                 <li key={service}>
                   <Link
                     href="/services"
-                    className="text-primaryBlack hover:text-primaryBlue smooth-transition text-sm"
+                    className="text-primaryBlack hover:text-primaryRed smooth-transition text-sm"
                   >
                     {service}
                   </Link>
@@ -96,11 +96,11 @@ export const Footer = () => {
             <h4 className="text-lg font-semibold mb-4 text-primaryBlack">Get In Touch</h4>
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-primaryBlue flex-shrink-0" />
+                <Phone className="w-5 h-5 text-primaryRed flex-shrink-0" />
                 <div>
                   <a
                     href="tel:8037697747"
-                    className="text-primaryBlack font-semibold hover:text-primaryBlue smooth-transition"
+                    className="text-primaryBlack font-semibold hover:text-primaryRed smooth-transition"
                   >
                     (803) 769-7747
                   </a>
@@ -109,11 +109,11 @@ export const Footer = () => {
               </div>
 
               <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-primaryBlue flex-shrink-0" />
+                <Mail className="w-5 h-5 text-primaryRed flex-shrink-0" />
                 <div>
                   <a
                     href="mailto:info@toprailfence-columbia.com"
-                    className="text-primaryBlack hover:text-primaryBlue smooth-transition text-sm"
+                    className="text-primaryBlack hover:text-primaryRed smooth-transition text-sm"
                   >
                     info@toprailfence-columbia.com
                   </a>
@@ -121,7 +121,7 @@ export const Footer = () => {
               </div>
 
               <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-primaryBlue flex-shrink-0 mt-1" />
+                <MapPin className="w-5 h-5 text-primaryRed flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-primaryBlack text-sm">
                     Serving Columbia & <br /> Surrounding Areas
@@ -131,7 +131,7 @@ export const Footer = () => {
             </div>
 
             {/* Business Hours */}
-            <div className="mt-6 p-4 bg-primaryBlue/10 rounded-lg">
+            <div className="mt-6 p-4 bg-primaryRed/10 rounded-lg">
               <h5 className="font-semibold text-sm mb-2 text-primaryBlack">Business Hours</h5>
               <div className="text-xs text-primaryBlack space-y-1">
                 <div className="flex justify-between">
@@ -153,7 +153,7 @@ export const Footer = () => {
       </div>
 
       {/* Bottom Footer */}
-      <div className="border-t border-primaryBlue/20">
+      <div className="border-t border-primaryRed/20">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-sm text-primaryBlack">
@@ -163,13 +163,13 @@ export const Footer = () => {
             <div className="flex items-center space-x-6 text-sm">
               <a
                 href="#"
-                className="text-primaryBlack hover:text-primaryBlue smooth-transition"
+                className="text-primaryBlack hover:text-primaryRed smooth-transition"
               >
                 Privacy Policy
               </a>
               <a
                 href="#"
-                className="text-primaryBlack hover:text-primaryBlue smooth-transition"
+                className="text-primaryBlack hover:text-primaryRed smooth-transition"
               >
                 Terms of Service
               </a>

@@ -30,9 +30,9 @@ export const QuoteForm = () => {
           <div
             className={`${
               t.visible ? "animate-enter" : "animate-leave"
-            } max-w-md w-full bg-white border-l-4 border-primaryBlue shadow-lg rounded-lg p-4 flex`}
+            } max-w-md w-full bg-white border-l-4 border-primaryRed shadow-lg rounded-lg p-4 flex`}
           >
-            <CheckCircleIcon className="w-6 h-6 text-primaryBlue mr-3" />
+            <CheckCircleIcon className="w-6 h-6 text-primaryRed mr-3" />
             <div className="flex flex-col">
               <strong className="text-lg text-primaryBlack mb-1">
                 Form Submitted!
@@ -74,7 +74,7 @@ export const QuoteForm = () => {
       <Toaster position="top-right" reverseOrder={false} />
       <div className="bg-white rounded-xl p-6 lg:p-8">
         <h2 className="text-3xl font-bold text-primaryBlack mb-4">
-          Get Your <span className="text-primaryBlue font-bold">Free Estimate</span>
+          Get Your <span className="text-primaryRed font-bold">Free Estimate</span>
         </h2>
 
         <form
@@ -87,7 +87,7 @@ export const QuoteForm = () => {
             onChange={handleChange}
             type="text"
             placeholder="First Name"
-            className="border-b p-2 focus:outline-none focus:border-primaryBlue col-span-1 placeholder-gray-700"
+            className="border-b p-2 focus:outline-none focus:border-primaryRed col-span-1 placeholder-gray-700"
             required
           />
           <input
@@ -96,7 +96,7 @@ export const QuoteForm = () => {
             onChange={handleChange}
             type="text"
             placeholder="Last Name"
-            className="border-b p-2 focus:outline-none focus:border-primaryBlue col-span-1 placeholder-gray-700"
+            className="border-b p-2 focus:outline-none focus:border-primaryRed col-span-1 placeholder-gray-700"
             required
           />
           <input
@@ -105,7 +105,7 @@ export const QuoteForm = () => {
             onChange={handleChange}
             type="tel"
             placeholder="Phone Number"
-            className="border-b p-2 focus:outline-none focus:border-primaryBlue col-span-1 placeholder-gray-700"
+            className="border-b p-2 focus:outline-none focus:border-primaryRed col-span-1 placeholder-gray-700"
             pattern="^[0-9]{10}$"
             title="Enter a valid 10-digit phone number"
             required
@@ -116,7 +116,7 @@ export const QuoteForm = () => {
             onChange={handleChange}
             type="email"
             placeholder="Email Address"
-            className="border-b p-2 focus:outline-none focus:border-primaryBlue col-span-1 placeholder-gray-700"
+            className="border-b p-2 focus:outline-none focus:border-primaryRed col-span-1 placeholder-gray-700"
             required
           />
           <input
@@ -125,7 +125,7 @@ export const QuoteForm = () => {
             onChange={handleChange}
             type="text"
             placeholder="Address"
-            className="border-b p-2 focus:outline-none focus:border-primaryBlue col-span-2 placeholder-gray-700"
+            className="border-b p-2 focus:outline-none focus:border-primaryRed col-span-2 placeholder-gray-700"
             required
           />
           <textarea
@@ -134,7 +134,7 @@ export const QuoteForm = () => {
             onChange={handleChange}
             placeholder="Message"
             rows={2}
-            className="border-b p-2 focus:outline-none focus:border-primaryBlue col-span-2 placeholder-gray-700"
+            className="border-b p-2 focus:outline-none focus:border-primaryRed col-span-2 placeholder-gray-700"
             required
           />
 
@@ -159,7 +159,7 @@ export const QuoteForm = () => {
           <div className="col-span-2">
             <Button
               type="submit"
-              className="w-full border-2 hover:bg-primaryBlue text-white border-primaryBlue bg-primaryBlue font-semibold py-3"
+              className="w-full border-2 hover:bg-primaryRed text-white border-primaryRed bg-primaryRed font-semibold py-3"
             >
               Request Estimate
             </Button>
