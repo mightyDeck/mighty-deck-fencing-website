@@ -16,7 +16,8 @@ const transporter = nodemailer.createTransport({
 export async function POST(req: any) {
   try {
     // Parse the request body
-    const { firstName, lastName, phone, email, zip, message, consent } =
+    
+    const { firstName, lastName, phone, email, zipCode, message } =
       await req.json();
 
     // Define the email options
@@ -28,9 +29,8 @@ export async function POST(req: any) {
 Name: ${firstName} ${lastName}
 Phone: ${phone}
 Email: ${email}
-Zip Code: ${zip}
-Message: ${message}
-checkbox: ${consent}
+Zip Code: ${zipCode}
+Project Details: ${message}
       `,
     };
 
