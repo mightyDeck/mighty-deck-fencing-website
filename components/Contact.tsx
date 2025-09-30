@@ -6,88 +6,53 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
 const contactInfo = [
-  {
-    icon: Phone,
-    title: "Call Us Today",
-    details: "(803) 769-7747",
-    subtitle: "Available 24/7 for emergencies",
-  },
-  {
-    icon: Mail,
-    title: "Email Us",
-    details: "info@toprailfence-columbia.com",
-    subtitle: "We respond within 24 hours",
-  },
-  {
-    icon: MapPin,
-    title: "Service Area",
-    details: "Columbia & Surrounding Areas",
-    subtitle: "Free estimates within 25 miles",
-  },
-  {
-    icon: Clock,
-    title: "Business Hours",
-    details: "Mon-Fri: 7AM-6PM",
-    subtitle: "Sat: 8AM-4PM, Sun: Emergency only",
-  },
+  { icon: Phone, title: "Call Us Today", details: "(803) 769-7747", subtitle: "Available 24/7 for emergencies" },
+  { icon: Mail, title: "Email Us", details: "info@toprailfence-columbia.com", subtitle: "We respond within 24 hours" },
+  { icon: MapPin, title: "Service Area", details: "Columbia & Surrounding Areas", subtitle: "Free estimates within 25 miles" },
+  { icon: Clock, title: "Business Hours", details: "Mon-Fri: 7AM-6PM", subtitle: "Sat: 8AM-4PM, Sun: Emergency only" },
 ];
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    address: "",
-    zipCode: "",
-    message: "",
+    firstName: "", lastName: "", email: "", phone: "", address: "", zipCode: "", message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
+  const [showModal, setShowModal] = useState(false);
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const res = await fetch("api/contact", {
+    try {
+      const res = await fetch("api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-      const data = await res.json();
+      await res.json();
 
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Request Submitted Successfully!",
-        description:
-          "We'll contact you within 24 hours with your free estimate.",
-      });
+      // Show modal on success
+      setShowModal(true);
+      setTimeout(() => setShowModal(false), 5000);
+
       setIsSubmitting(false);
       setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        address: "",
-        zipCode: "",
-        message: "",
+        firstName: "", lastName: "", email: "", phone: "", address: "", zipCode: "", message: "",
       });
-    }, 1000);
+    } catch (err) {
+      console.error(err);
+      setIsSubmitting(false);
+      alert("Something went wrong!");
+    }
   };
 
   return (
@@ -105,8 +70,7 @@ export const Contact = () => {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Contact us today for a free, no-obligation estimate. Our experienced
-            team is ready to help you find the perfect fencing solution.
+            Contact us today for a free, no-obligation estimate. Our experienced team is ready to help you find the perfect fencing solution.
           </p>
         </div>
 
@@ -115,158 +79,61 @@ export const Contact = () => {
           <div className="lg:col-span-2">
             <Card className="soft-shadow border-0 animate-fade-in">
               <CardHeader>
-                <CardTitle className="text-2xl text-foreground">
-                  Request Your Free Estimate
-                </CardTitle>
+                <CardTitle className="text-2xl text-foreground">Request Your Free Estimate</CardTitle>
                 <p className="text-muted-foreground">
-                  Fill out the form below and we'll get back to you within 24
-                  hours.
+                  Fill out the form below and we'll get back to you within 24 hours.
                 </p>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Name Fields */}
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label
-                        htmlFor="firstName"
-                        className="block text-sm font-medium text-foreground mb-2"
-                      >
-                        First Name *
-                      </label>
-                      <Input
-                        id="firstName"
-                        name="firstName"
-                        value={formData.firstName}
-                        onChange={handleInputChange}
-                        required
-                        className="smooth-transition"
-                      />
+                      <label htmlFor="firstName" className="block text-sm font-medium text-foreground mb-2">First Name *</label>
+                      <Input id="firstName" name="firstName" value={formData.firstName} onChange={handleInputChange} required className="smooth-transition" />
                     </div>
                     <div>
-                      <label
-                        htmlFor="lastName"
-                        className="block text-sm font-medium text-foreground mb-2"
-                      >
-                        Last Name *
-                      </label>
-                      <Input
-                        id="lastName"
-                        name="lastName"
-                        value={formData.lastName}
-                        onChange={handleInputChange}
-                        required
-                        className="smooth-transition"
-                      />
+                      <label htmlFor="lastName" className="block text-sm font-medium text-foreground mb-2">Last Name *</label>
+                      <Input id="lastName" name="lastName" value={formData.lastName} onChange={handleInputChange} required className="smooth-transition" />
                     </div>
                   </div>
 
+                  {/* Email & Phone */}
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium text-foreground mb-2"
-                      >
-                        Email Address *
-                      </label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="smooth-transition"
-                      />
+                      <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">Email Address *</label>
+                      <Input id="email" name="email" type="email" value={formData.email} onChange={handleInputChange} required className="smooth-transition" />
                     </div>
                     <div>
-                      <label
-                        htmlFor="phone"
-                        className="block text-sm font-medium text-foreground mb-2"
-                      >
-                        Phone Number *
-                      </label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        required
-                        className="smooth-transition"
-                      />
+                      <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">Phone Number *</label>
+                      <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleInputChange} required className="smooth-transition" />
                     </div>
                   </div>
 
+                  {/* Address & ZIP */}
                   <div className="grid md:grid-cols-3 gap-4">
                     <div className="md:col-span-2">
-                      <label
-                        htmlFor="address"
-                        className="block text-sm font-medium text-foreground mb-2"
-                      >
-                        Property Address *
-                      </label>
-                      <Input
-                        id="address"
-                        name="address"
-                        value={formData.address}
-                        onChange={handleInputChange}
-                        required
-                        className="smooth-transition"
-                      />
+                      <label htmlFor="address" className="block text-sm font-medium text-foreground mb-2">Property Address *</label>
+                      <Input id="address" name="address" value={formData.address} onChange={handleInputChange} required className="smooth-transition" />
                     </div>
                     <div>
-                      <label
-                        htmlFor="zipCode"
-                        className="block text-sm font-medium text-foreground mb-2"
-                      >
-                        ZIP Code
-                      </label>
-                      <Input
-                        id="zipCode"
-                        name="zipCode"
-                        value={formData.zipCode}
-                        onChange={handleInputChange}
-                        className="smooth-transition"
-                      />
+                      <label htmlFor="zipCode" className="block text-sm font-medium text-foreground mb-2">ZIP Code</label>
+                      <Input id="zipCode" name="zipCode" value={formData.zipCode} onChange={handleInputChange} className="smooth-transition" />
                     </div>
                   </div>
 
+                  {/* Message */}
                   <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
-                      Project Details *
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      placeholder="Please describe your fencing needs, preferred materials, timeline, and any specific requirements..."
-                      className="min-h-[120px] smooth-transition"
-                      required
-                    />
+                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">Project Details *</label>
+                    <Textarea id="message" name="message" value={formData.message} onChange={handleInputChange} placeholder="Please describe your fencing needs..." className="min-h-[120px] smooth-transition" required />
                   </div>
 
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-hero-gradient hover:shadow-accent text-lg py-6 smooth-transition"
-                  >
-                    {isSubmitting ? (
-                      "Submitting..."
-                    ) : (
-                      <>
-                        <Send className="w-5 h-5 mr-2" />
-                        Request Free Estimate
-                      </>
-                    )}
+                  <Button type="submit" disabled={isSubmitting} className="w-full bg-hero-gradient hover:shadow-accent text-lg py-6 smooth-transition">
+                    {isSubmitting ? "Submitting..." : <><Send className="w-5 h-5 mr-2" />Request Free Estimate</>}
                   </Button>
 
                   <p className="text-sm text-muted-foreground text-center">
-                    * Required fields. We respect your privacy and will never
-                    share your information.
+                    * Required fields. We respect your privacy.
                   </p>
                 </form>
               </CardContent>
@@ -274,51 +141,56 @@ export const Contact = () => {
           </div>
 
           {/* Contact Information */}
-         <div className="space-y-6 animate-slide-in-right">
-  {contactInfo.map((info, index) => (
-    <Card
-      key={info.title}
-      className="soft-shadow border-0 hover:shadow-elegant smooth-transition animate-scale-in"
-      style={{ animationDelay: `${index * 0.1}s` }}
-    >
-      <CardContent className="p-6">
-        <div className="flex items-start space-x-4">
-          {/* Icon in red */}
-          <div className="p-3 rounded-lg flex-shrink-0">
-            <info.icon className="w-6 h-6 text-red-600" />
-          </div>
-          <div>
-            {/* Headline in black */}
-            <h3 className="font-semibold text-black mb-1">{info.title}</h3>
-            <p className="text-lg text-muted-foreground font-medium mb-1">
-              {info.details}
-            </p>
-            <p className="text-sm text-muted-foreground">{info.subtitle}</p>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
-  ))}
+          <div className="space-y-6 animate-slide-in-right">
+            {contactInfo.map((info, index) => (
+              <Card key={info.title} className="soft-shadow border-0 hover:shadow-elegant smooth-transition animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <CardContent className="p-6 flex items-start space-x-4">
+                  <div className="p-3 rounded-lg flex-shrink-0">
+                    <info.icon className="w-6 h-6 text-red-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-black mb-1">{info.title}</h3>
+                    <p className="text-lg text-muted-foreground font-medium mb-1">{info.details}</p>
+                    <p className="text-sm text-muted-foreground">{info.subtitle}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
 
-  {/* Emergency Notice */}
-  <Card className="bg-accent/10 border border-accent/20 soft-shadow">
-    <CardContent className="p-6 text-center">
-      <h3 className="font-bold text-black mb-2">Emergency Repairs?</h3>
-      <p className="text-sm text-muted-foreground mb-4">
-        We offer 24/7 emergency fence repair services for urgent situations.
-      </p>
-      <Button
-        className="w-full bg-red-600 text-black hover:bg-red-700 hover:text-black border-red-600"
-        asChild
-      >
-        <a href="tel:8037697747">Call Now: (803) 769-7747</a>
-      </Button>
-    </CardContent>
-  </Card>
-</div>
-
+            {/* Emergency Notice */}
+            <Card className="bg-accent/10 border border-accent/20 soft-shadow">
+              <CardContent className="p-6 text-center">
+                <h3 className="font-bold text-black mb-2">Emergency Repairs?</h3>
+                <p className="text-sm text-muted-foreground mb-4">We offer 24/7 emergency fence repair services for urgent situations.</p>
+                <Button className="w-full bg-red-600 text-black hover:bg-red-700 hover:text-black border-red-600" asChild>
+                  <a href="tel:8037697747">Call Now: (803) 769-7747</a>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
+
+      {/* Centered Modal */}
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50 animate-fadeIn">
+          <div className="bg-gradient-to-br from-white to-gray-100 rounded-3xl shadow-2xl p-10 max-w-2xl w-full text-center transform scale-90 animate-scaleUp">
+            <div className="mx-auto mb-6 w-24 h-24 flex items-center justify-center rounded-full bg-green-100 animate-bounce">
+              <CheckCircleIcon className="w-12 h-12 text-green-600" />
+            </div>
+            <h2 className="text-3xl font-extrabold mb-3 text-gray-800">Form Submitted Successfully!</h2>
+            <p className="text-gray-600 text-lg mb-6">
+              Someone from our team will reach out to you soon.
+            </p>
+            <button
+              onClick={() => setShowModal(false)}
+              className="px-8 py-3 bg-green-500 text-white font-semibold rounded-full shadow-lg hover:bg-green-600 hover:shadow-xl transition-all duration-300"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

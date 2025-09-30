@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import toast, { Toaster } from "react-hot-toast";
-import { CheckCircleIcon } from "@heroicons/react/24/solid"; // ✅ Heroicon for green check
+import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
 export const QuoteForm = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +14,8 @@ export const QuoteForm = () => {
     message: "",
     consent: false,
   });
+
+  const [showModal, setShowModal] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -37,27 +38,13 @@ export const QuoteForm = () => {
       });
       const data = await res.json();
 
-      // ✅ Show toast notification with submitted data
-   toast.custom(
-        (t) => (
-          <div
-            className={`${
-              t.visible ? "animate-enter" : "animate-leave"
-            } max-w-md w-full bg-white border-l-4 border-green-500 shadow-lg rounded-lg p-4 flex`}
-          >
-            <CheckCircleIcon className="w-6 h-6 text-green-500 mr-3" />
-            <div className="flex flex-col">
-              <strong className="text-lg text-primaryBlack mb-1">
-                Form Submitted!
-              </strong>
-            </div>
-          </div>
-        ),
-        { duration: 7000 } // Toast stays for 7 seconds
-      );
+      // Show the modal
+      setShowModal(true);
 
+      // Optional: auto-close modal after 5 seconds
+      setTimeout(() => setShowModal(false), 5000);
 
-      // Optional: Reset form after submission
+      // Reset form
       setFormData({
         firstName: "",
         lastName: "",
@@ -69,19 +56,12 @@ export const QuoteForm = () => {
       });
     } catch (err) {
       console.error(err);
-      toast.error("Something went wrong!", {
-        style: {
-          background: "#f87171", // red background for errors
-          color: "#fff",
-          fontWeight: "bold",
-        },
-        duration: 5000,
-      });
+      alert("Something went wrong!"); // Simple fallback error
     }
   };
 
   return (
-<div className="bg-gradient-to-r from-black via-neutral-800 to-neutral-700 p-[2px] rounded-xl shadow-lg w-full max-w-2xl">      <Toaster position="top-right" reverseOrder={false} />
+    <div className="bg-gradient-to-r from-black via-neutral-800 to-neutral-700 p-[2px] rounded-xl shadow-lg w-full max-w-2xl">
       <div className="bg-white rounded-xl p-6 lg:p-8">
         <h2 className="text-3xl font-bold text-primaryBlack mb-4">
           Get Your{" "}
@@ -159,14 +139,10 @@ export const QuoteForm = () => {
               required
             />
             <span>
-              By checking this box, I consent and opt-on to receive SMS/text
-              messages via automated technology from Mighty Dog Roofing for
-              conversational purposes, appointment reminders, follow-up on
-              cases, order confirmations, and other notifications. Message
+              By checking this box, I consent and opt-in to receive SMS/text
+              messages via automated technology from Mighty Dog Roofing. Message
               frequency may vary and standard messaging & data rates may apply.
-              I acknowledge that I can opt out of ALL future messages at any
-              time by replying STOP. For assistance email
-              admin@mightydecksandfences.com.
+              I can opt out anytime.
             </span>
           </div>
 
@@ -180,6 +156,84 @@ export const QuoteForm = () => {
           </div>
         </form>
       </div>
+
+      {/* Modal Popup */}
+      {/* {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50 animate-fadeIn">
+          <div className="bg-gradient-to-br from-white to-gray-100 rounded-2xl shadow-2xl p-8 max-w-sm w-full text-center transform transition-transform duration-300 scale-90 animate-scaleUp">
+            <div className="mx-auto mb-4 w-20 h-20 flex items-center justify-center rounded-full bg-green-100 animate-bounce">
+              <CheckCircleIcon className="w-10 h-10 text-green-600" />
+            </div>
+
+            <h2 className="text-2xl font-extrabold mb-2 text-gray-800">
+              Form Submitted Successfully!
+            </h2>
+            <p className="text-gray-600 mb-6">
+              Someone from our team will reach out to you soon.
+            </p>
+
+            <button
+              onClick={() => setShowModal(false)}
+              className="px-6 py-3 bg-green-500 text-white font-semibold rounded-full shadow-lg hover:bg-green-600 hover:shadow-xl transition-all duration-300"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )} */}
+
+      {/* {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50 animate-fadeIn">
+          <div className="bg-gradient-to-br from-white to-gray-100 rounded-3xl shadow-2xl p-10 max-w-2xl w-full text-center transform transition-transform duration-300 scale-90 animate-scaleUp">
+            <div className="mx-auto mb-6 w-24 h-24 flex items-center justify-center rounded-full bg-green-100 animate-bounce">
+              <CheckCircleIcon className="w-12 h-12 text-green-600" />
+            </div>
+
+            <h2 className="text-3xl font-extrabold mb-3 text-gray-800">
+              Form Submitted Successfully!
+            </h2>
+            <p className="text-gray-600 mb-6 text-lg">
+              Someone from our team will reach out to you soon. We appreciate
+              your patience!
+            </p>
+
+            <button
+              onClick={() => setShowModal(false)}
+              className="px-8 py-3 bg-green-500 text-white font-semibold rounded-full shadow-lg hover:bg-green-600 hover:shadow-xl transition-all duration-300"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )} */}
+
+      {showModal && (
+  <div className="fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-md z-50 animate-fadeIn">
+    <div className="bg-white/90 backdrop-blur-lg rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.3)] p-12 max-w-2xl w-full text-center transform scale-90 animate-scaleUp">
+      
+      <div className="mx-auto mb-6 w-24 h-24 flex items-center justify-center rounded-full bg-green-200 animate-bounce shadow-lg">
+        <CheckCircleIcon className="w-12 h-12 text-green-600" />
+      </div>
+
+      <h2 className="text-3xl font-extrabold mb-3 text-gray-900">
+        Success!
+      </h2>
+      <p className="text-gray-700 text-lg mb-6">
+        Your form has been submitted. Our team will reach out to you shortly.
+      </p>
+
+      <button
+        onClick={() => setShowModal(false)}
+        className="px-8 py-3 bg-green-500 text-white font-semibold rounded-full shadow-lg hover:bg-green-600 hover:shadow-xl transition-all duration-300"
+      >
+        Got it!
+      </button>
+    </div>
+  </div>
+)}
+
+
+
     </div>
   );
 };
