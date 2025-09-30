@@ -11,7 +11,7 @@ export const Hero = () => {
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
               <div className="flex items-center space-x-2 text-accent">
-                <Award className="w-5 h-5 text-primaryRed" />
+                <Award className="w-5 h-5 text-primaryYellow" />
                 <span className="font-semibold text-sm tracking-wide uppercase text-primaryBlack">
                   Columbia's Premier Fence Company
                 </span>
@@ -31,15 +31,15 @@ export const Hero = () => {
 
             <div className="flex flex-wrap gap-6 text-sm">
               <div className="flex items-center font-bold text-primaryBlack">
-                <Shield className="w-4 h-4 mr-2 text-primaryRed" />
+                <Shield className="w-4 h-4 mr-2 text-primaryYellow" />
                 Licensed & Insured
               </div>
               <div className="flex items-center font-bold text-primaryBlack">
-                <Users className="w-4 h-4 mr-2 text-primaryRed" />
+                <Users className="w-4 h-4 mr-2 text-primaryYellow" />
                 500+ Happy Customers
               </div>
               <div className="flex items-center font-bold text-primaryBlack">
-                <Award className="w-4 h-4 mr-2 text-primaryRed" />
+                <Award className="w-4 h-4 mr-2 text-primaryYellow" />
                 25+ Years Experience
               </div>
             </div>

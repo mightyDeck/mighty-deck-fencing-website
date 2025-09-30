@@ -68,7 +68,7 @@ const Home = () => {
                 >
                   <CardContent className="p-6 text-center">
                     <div className="bg-primaryRed/10 p-4 rounded-full w-fit mx-auto mb-4 group-hover:bg-primaryRed/20 transition">
-                      <service.icon className="w-8 h-8 text-primaryRed" />
+                      <service.icon className="w-8 h-8 text-primaryYellow" />
                     </div>
                     <h3 className="text-xl font-bold text-primaryBlack mb-3">
                       {service.title}
