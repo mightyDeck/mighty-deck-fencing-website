@@ -5,8 +5,19 @@ import { Button } from "@/components/ui/button";
 import toast, { Toaster } from "react-hot-toast";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
+// Define the shape of the form data
+interface FormData {
+  firstName: string;
+  lastName: string;
+  phone: string;
+  email: string;
+  zip: string;
+  message: string;
+  consent: boolean;
+}
+
 export const QuoteForm = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
     phone: "",
@@ -18,9 +29,16 @@ export const QuoteForm = () => {
 
   const [showModal, setShowModal] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
+  // ✅ handleChange handles text, textarea, and checkbox
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value, type } = e.target;
+    if (type === "checkbox" && e.target instanceof HTMLInputElement) {
+      setFormData({ ...formData, [name]: e.target.checked });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -34,10 +52,10 @@ export const QuoteForm = () => {
 
       await res.json();
 
-      // Show the modal
+      // Show modal
       setShowModal(true);
 
-      // Optional: auto-close modal after 5 seconds
+      // Auto-close after 5s
       setTimeout(() => setShowModal(false), 5000);
 
       // Reset form
@@ -52,7 +70,7 @@ export const QuoteForm = () => {
       });
     } catch (err) {
       console.error(err);
-      alert("Something went wrong!"); // Simple fallback error
+      toast.error("Something went wrong!");
     }
   };
 
@@ -68,61 +86,45 @@ export const QuoteForm = () => {
           onSubmit={handleSubmit}
           className="grid grid-cols-1 md:grid-cols-2 gap-3"
         >
-          <input
+          <InputField
             name="firstName"
             value={formData.firstName}
             onChange={handleChange}
-            type="text"
             placeholder="First Name"
-            className="border-b p-2 focus:outline-none focus:border-primaryRed col-span-1 placeholder-gray-700"
-            required
           />
-          <input
+          <InputField
             name="lastName"
             value={formData.lastName}
             onChange={handleChange}
-            type="text"
             placeholder="Last Name"
-            className="border-b p-2 focus:outline-none focus:border-primaryRed col-span-1 placeholder-gray-700"
-            required
           />
-          <input
+          <InputField
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            type="tel"
             placeholder="Phone Number"
-            className="border-b p-2 focus:outline-none focus:border-primaryRed col-span-1 placeholder-gray-700"
-            pattern="^[0-9]{10}$"
-            title="Enter a valid 10-digit phone number"
-            required
+            type="tel"
           />
-          <input
+          <InputField
             name="email"
             value={formData.email}
             onChange={handleChange}
-            type="email"
             placeholder="Email Address"
-            className="border-b p-2 focus:outline-none focus:border-primaryRed col-span-1 placeholder-gray-700"
-            required
+            type="email"
           />
-          <input
+          <InputField
             name="zip"
             value={formData.zip}
             onChange={handleChange}
-            type="text"
             placeholder="Address"
-            className="border-b p-2 focus:outline-none focus:border-primaryRed col-span-2 placeholder-gray-700"
-            required
+            className="col-span-2"
           />
-          <textarea
+          <TextAreaField
             name="message"
             value={formData.message}
             onChange={handleChange}
             placeholder="Message"
-            rows={2}
-            className="border-b p-2 focus:outline-none focus:border-primaryRed col-span-2 placeholder-gray-700"
-            required
+            className="col-span-2"
           />
 
           <div className="flex items-start space-x-4 text-sm col-span-2">
@@ -143,6 +145,7 @@ export const QuoteForm = () => {
               admin@mightyfences.com.
             </span>
           </div>
+
           <div className="col-span-2">
             <Button
               type="submit"
@@ -155,86 +158,85 @@ export const QuoteForm = () => {
       </div>
 
       {/* Modal Popup */}
-      {/* {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50 animate-fadeIn">
-          <div className="bg-gradient-to-br from-white to-gray-100 rounded-2xl shadow-2xl p-8 max-w-sm w-full text-center transform transition-transform duration-300 scale-90 animate-scaleUp">
-            <div className="mx-auto mb-4 w-20 h-20 flex items-center justify-center rounded-full bg-green-100 animate-bounce">
-              <CheckCircleIcon className="w-10 h-10 text-green-600" />
-            </div>
-
-            <h2 className="text-2xl font-extrabold mb-2 text-gray-800">
-              Form Submitted Successfully!
-            </h2>
-            <p className="text-gray-600 mb-6">
-              Someone from our team will reach out to you soon.
-            </p>
-
-            <button
-              onClick={() => setShowModal(false)}
-              className="px-6 py-3 bg-green-500 text-white font-semibold rounded-full shadow-lg hover:bg-green-600 hover:shadow-xl transition-all duration-300"
-            >
-              OK
-            </button>
-          </div>
-        </div>
-      )} */}
-
-      {/* {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50 animate-fadeIn">
-          <div className="bg-gradient-to-br from-white to-gray-100 rounded-3xl shadow-2xl p-10 max-w-2xl w-full text-center transform transition-transform duration-300 scale-90 animate-scaleUp">
-            <div className="mx-auto mb-6 w-24 h-24 flex items-center justify-center rounded-full bg-green-100 animate-bounce">
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-md z-50 animate-fadeIn">
+          <div className="bg-white/90 backdrop-blur-lg rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.3)] p-12 max-w-2xl w-full text-center transform scale-90 animate-scaleUp">
+            <div className="mx-auto mb-6 w-24 h-24 flex items-center justify-center rounded-full bg-green-200 animate-bounce shadow-lg">
               <CheckCircleIcon className="w-12 h-12 text-green-600" />
             </div>
 
-            <h2 className="text-3xl font-extrabold mb-3 text-gray-800">
-              Form Submitted Successfully!
+            <h2 className="text-3xl font-extrabold mb-3 text-gray-900">
+              Success!
             </h2>
-            <p className="text-gray-600 mb-6 text-lg">
-              Someone from our team will reach out to you soon. We appreciate
-              your patience!
+            <p className="text-gray-700 text-lg mb-6">
+              Your form has been submitted. Our team will reach out to you shortly.
             </p>
 
             <button
               onClick={() => setShowModal(false)}
               className="px-8 py-3 bg-green-500 text-white font-semibold rounded-full shadow-lg hover:bg-green-600 hover:shadow-xl transition-all duration-300"
             >
-              OK
+              Got it!
             </button>
           </div>
         </div>
-      )} */}
-
-      {showModal && (
-  <div className="fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-md z-50 animate-fadeIn">
-    <div className="bg-white/90 backdrop-blur-lg rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.3)] p-12 max-w-2xl w-full text-center transform scale-90 animate-scaleUp">
-      
-      <div className="mx-auto mb-6 w-24 h-24 flex items-center justify-center rounded-full bg-green-200 animate-bounce shadow-lg">
-        <CheckCircleIcon className="w-12 h-12 text-green-600" />
-      </div>
-
-      <h2 className="text-3xl font-extrabold mb-3 text-gray-900">
-        Success!
-      </h2>
-      <p className="text-gray-700 text-lg mb-6">
-        Your form has been submitted. Our team will reach out to you shortly.
-      </p>
-
-      <button
-        onClick={() => setShowModal(false)}
-        className="px-8 py-3 bg-green-500 text-white font-semibold rounded-full shadow-lg hover:bg-green-600 hover:shadow-xl transition-all duration-300"
-      >
-        Got it!
-      </button>
-    </div>
-  </div>
-)}
-
-
-
+      )}
     </div>
   );
 };
 
-const InputField = ({ name, value, onChange, placeholder, type = "text", className = "" }) => (
-  <input name={name} value={value} onChange={onChange} placeholder={placeholder} type={type} className={`border-b p-2 focus:outline-none focus:border-red-600 placeholder-gray-700 ${className}`} required />
+// ✅ Input field component
+type InputFieldProps = {
+  name: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  placeholder?: string;
+  type?: string;
+  className?: string;
+};
+
+const InputField: React.FC<InputFieldProps> = ({
+  name,
+  value,
+  onChange,
+  placeholder,
+  type = "text",
+  className = "",
+}) => (
+  <input
+    name={name}
+    value={value}
+    onChange={onChange}
+    placeholder={placeholder}
+    type={type}
+    className={`border-b p-2 focus:outline-none focus:border-red-600 placeholder-gray-700 ${className}`}
+    required
+  />
+);
+
+// ✅ Textarea component
+type TextAreaFieldProps = {
+  name: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  placeholder?: string;
+  className?: string;
+};
+
+const TextAreaField: React.FC<TextAreaFieldProps> = ({
+  name,
+  value,
+  onChange,
+  placeholder,
+  className = "",
+}) => (
+  <textarea
+    name={name}
+    value={value}
+    onChange={onChange}
+    placeholder={placeholder}
+    rows={2}
+    className={`border-b p-2 focus:outline-none focus:border-red-600 placeholder-gray-700 ${className}`}
+    required
+  />
 );

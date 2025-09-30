@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
-import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
 const contactInfo = [
   { icon: Phone, title: "Call Us Today", details: "(803) 769-7747", subtitle: "Available 24/7 for emergencies" },
@@ -35,7 +34,7 @@ export const Contact = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-      const data = await res.json();
+      await res.json();
 
       // Show the modal
       setShowModal(true);
@@ -54,6 +53,7 @@ export const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-primaryRed/10">
       <div className="container mx-auto px-4">
+        {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
           <div className="text-primaryRed font-semibold text-sm tracking-wide uppercase mb-4">
             Get Your Free Estimate
@@ -70,6 +70,7 @@ export const Contact = () => {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
+          {/* Contact Form */}
           <div className="lg:col-span-2">
             <Card className="soft-shadow border-0 animate-fade-in">
               <CardHeader>
@@ -205,7 +206,7 @@ export const Contact = () => {
             </Card>
           </div>
 
-          {/* Contact Information */}
+          {/* Contact Info Cards */}
           <div className="space-y-6 animate-slide-in-right">
             {contactInfo.map((info, index) => (
               <Card
@@ -250,9 +251,39 @@ export const Contact = () => {
   );
 };
 
-const InputField = ({ name, value, onChange, label, type = "text", className = "" }) => (
+/* ✅ Fixed InputField with proper typing */
+type InputFieldProps = {
+  name: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  label: string;
+  type?: string;
+  className?: string;
+};
+
+const InputField = ({
+  name,
+  value,
+  onChange,
+  label,
+  type = "text",
+  className = "",
+}: InputFieldProps) => (
   <div>
-    <label htmlFor={name} className="block text-sm font-medium text-foreground mb-2">{label}</label>
-    <Input id={name} name={name} value={value} onChange={onChange} type={type} required className={`smooth-transition ${className}`} />
+    <label
+      htmlFor={name}
+      className="block text-sm font-medium text-foreground mb-2"
+    >
+      {label}
+    </label>
+    <Input
+      id={name}
+      name={name}
+      value={value}
+      onChange={onChange}
+      type={type}
+      required
+      className={`smooth-transition ${className}`}
+    />
   </div>
 );
