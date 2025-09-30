@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import toast, { Toaster } from "react-hot-toast";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
 export const QuoteForm = () => {
@@ -17,15 +18,9 @@ export const QuoteForm = () => {
 
   const [showModal, setShowModal] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    //@ts-ignore
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === "checkbox" ? checked : value,
-    });
+    setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -36,7 +31,8 @@ export const QuoteForm = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-      const data = await res.json();
+
+      await res.json();
 
       // Show the modal
       setShowModal(true);
@@ -62,10 +58,10 @@ export const QuoteForm = () => {
 
   return (
     <div className="bg-gradient-to-r from-black via-neutral-800 to-neutral-700 p-[2px] rounded-xl shadow-lg w-full max-w-2xl">
+      <Toaster position="top-right" reverseOrder={false} />
       <div className="bg-white rounded-xl p-6 lg:p-8">
         <h2 className="text-3xl font-bold text-primaryBlack mb-4">
-          Get Your{" "}
-          <span className="text-primaryBlack font-bold">Free Estimate</span>
+          Get Your <span className="text-primaryRed font-bold">Free Estimate</span>
         </h2>
 
         <form
@@ -78,7 +74,7 @@ export const QuoteForm = () => {
             onChange={handleChange}
             type="text"
             placeholder="First Name"
-            className="border-b p-2 focus:outline-none focus:border-green-600 col-span-1 placeholder-gray-700"
+            className="border-b p-2 focus:outline-none focus:border-primaryRed col-span-1 placeholder-gray-700"
             required
           />
           <input
@@ -87,7 +83,7 @@ export const QuoteForm = () => {
             onChange={handleChange}
             type="text"
             placeholder="Last Name"
-            className="border-b p-2 focus:outline-none focus:border-green-600 col-span-1 placeholder-gray-700"
+            className="border-b p-2 focus:outline-none focus:border-primaryRed col-span-1 placeholder-gray-700"
             required
           />
           <input
@@ -96,7 +92,7 @@ export const QuoteForm = () => {
             onChange={handleChange}
             type="tel"
             placeholder="Phone Number"
-            className="border-b p-2 focus:outline-none focus:border-green-600 col-span-1 placeholder-gray-700"
+            className="border-b p-2 focus:outline-none focus:border-primaryRed col-span-1 placeholder-gray-700"
             pattern="^[0-9]{10}$"
             title="Enter a valid 10-digit phone number"
             required
@@ -107,7 +103,7 @@ export const QuoteForm = () => {
             onChange={handleChange}
             type="email"
             placeholder="Email Address"
-            className="border-b p-2 focus:outline-none focus:border-green-600 col-span-1 placeholder-gray-700"
+            className="border-b p-2 focus:outline-none focus:border-primaryRed col-span-1 placeholder-gray-700"
             required
           />
           <input
@@ -116,7 +112,7 @@ export const QuoteForm = () => {
             onChange={handleChange}
             type="text"
             placeholder="Address"
-            className="border-b p-2 focus:outline-none focus:border-green-600 col-span-2 placeholder-gray-700"
+            className="border-b p-2 focus:outline-none focus:border-primaryRed col-span-2 placeholder-gray-700"
             required
           />
           <textarea
@@ -125,7 +121,7 @@ export const QuoteForm = () => {
             onChange={handleChange}
             placeholder="Message"
             rows={2}
-            className="border-b p-2 focus:outline-none focus:border-green-600 col-span-2 placeholder-gray-700"
+            className="border-b p-2 focus:outline-none focus:border-primaryRed col-span-2 placeholder-gray-700"
             required
           />
 
@@ -139,17 +135,18 @@ export const QuoteForm = () => {
               required
             />
             <span>
-              By checking this box, I consent and opt-in to receive SMS/text
-              messages via automated technology from Mighty Dog Roofing. Message
-              frequency may vary and standard messaging & data rates may apply.
-              I can opt out anytime.
+              By checking this box, I consent to receive SMS/text messages via
+              automated technology from Mighty Fences for appointment reminders,
+              follow-ups, order confirmations, and other notifications.
+              Message frequency may vary. Standard messaging & data rates may
+              apply. Reply STOP to opt-out. For assistance email
+              admin@mightyfences.com.
             </span>
           </div>
-
           <div className="col-span-2">
             <Button
               type="submit"
-              className="w-full border-2 hover:bg-red-600 text-primaryBlack border-primaryBlack bg-primaryRed font-semibold py-3"
+              className="w-full border-2 hover:bg-primaryRed text-white border-primaryRed bg-primaryRed font-semibold py-3"
             >
               Request Estimate
             </Button>
@@ -237,3 +234,7 @@ export const QuoteForm = () => {
     </div>
   );
 };
+
+const InputField = ({ name, value, onChange, placeholder, type = "text", className = "" }) => (
+  <input name={name} value={value} onChange={onChange} placeholder={placeholder} type={type} className={`border-b p-2 focus:outline-none focus:border-red-600 placeholder-gray-700 ${className}`} required />
+);

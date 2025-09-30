@@ -10,7 +10,7 @@ import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
 const contactInfo = [
   { icon: Phone, title: "Call Us Today", details: "(803) 769-7747", subtitle: "Available 24/7 for emergencies" },
-  { icon: Mail, title: "Email Us", details: "admin@mightydecksandfences.com", subtitle: "We respond within 24 hours" },
+  { icon: Mail, title: "Email Us", details: "info@toprailfence-columbia.com", subtitle: "We respond within 24 hours" },
   { icon: MapPin, title: "Service Area", details: "Columbia & Surrounding Areas", subtitle: "Free estimates within 25 miles" },
   { icon: Clock, title: "Business Hours", details: "Mon-Fri: 7AM-6PM", subtitle: "Sat: 8AM-4PM, Sun: Emergency only" },
 ];
@@ -19,7 +19,6 @@ export const Contact = () => {
   const [formData, setFormData] = useState({
     firstName: "", lastName: "", email: "", phone: "", address: "", zipCode: "", message: "",
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -30,110 +29,176 @@ export const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
     try {
-      const res = await fetch("api/contact", {
+      const res = await fetch("api/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-      await res.json();
+      const data = await res.json();
 
-      // Show modal on success
+      // Show the modal
       setShowModal(true);
+
+      // Optional: auto-close modal after 5 seconds
       setTimeout(() => setShowModal(false), 5000);
 
-      setIsSubmitting(false);
-      setFormData({
-        firstName: "", lastName: "", email: "", phone: "", address: "", zipCode: "", message: "",
-      });
+      // Reset form
+      setFormData({ firstName: "", lastName: "", email: "", phone: "", address: "", zipCode: "", message: "" });
     } catch (err) {
       console.error(err);
-      setIsSubmitting(false);
-      alert("Something went wrong!");
+      alert("Something went wrong!"); // Simple fallback error
     }
   };
 
   return (
-    <section id="contact" className="py-20 bg-background">
+    <section id="contact" className="py-20 bg-primaryRed/10">
       <div className="container mx-auto px-4">
-        {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <div className="text-accent font-semibold text-sm tracking-wide uppercase mb-4">
+          <div className="text-primaryRed font-semibold text-sm tracking-wide uppercase mb-4">
             Get Your Free Estimate
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-primaryBlack mb-6">
             Ready to Transform Your{" "}
-            <span className="bg-hero-gradient bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primaryRed to-primaryRed bg-clip-text text-transparent">
               Property?
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-primaryBlack/80 max-w-3xl mx-auto">
             Contact us today for a free, no-obligation estimate. Our experienced team is ready to help you find the perfect fencing solution.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Contact Form */}
           <div className="lg:col-span-2">
             <Card className="soft-shadow border-0 animate-fade-in">
               <CardHeader>
-                <CardTitle className="text-2xl text-foreground">Request Your Free Estimate</CardTitle>
-                <p className="text-muted-foreground">
-                  Fill out the form below and we'll get back to you within 24 hours.
+                <CardTitle className="text-2xl text-primaryBlack">
+                  Request Your Free Estimate
+                </CardTitle>
+                <p className="text-primaryBlack/70">
+                  Fill out the form below and we'll get back to you within 24
+                  hours.
                 </p>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name Fields */}
                   <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="firstName" className="block text-sm font-medium text-foreground mb-2">First Name *</label>
-                      <Input id="firstName" name="firstName" value={formData.firstName} onChange={handleInputChange} required className="smooth-transition" />
-                    </div>
-                    <div>
-                      <label htmlFor="lastName" className="block text-sm font-medium text-foreground mb-2">Last Name *</label>
-                      <Input id="lastName" name="lastName" value={formData.lastName} onChange={handleInputChange} required className="smooth-transition" />
-                    </div>
+                    {["firstName", "lastName"].map((field) => (
+                      <div key={field}>
+                        <label
+                          htmlFor={field}
+                          className="block text-sm font-medium text-primaryBlack mb-2"
+                        >
+                          {field === "firstName" ? "First Name *" : "Last Name *"}
+                        </label>
+                        <Input
+                          id={field}
+                          name={field}
+                          value={formData[field as keyof typeof formData]}
+                          onChange={handleInputChange}
+                          required
+                          className="smooth-transition"
+                        />
+                      </div>
+                    ))}
                   </div>
 
                   {/* Email & Phone */}
                   <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">Email Address *</label>
-                      <Input id="email" name="email" type="email" value={formData.email} onChange={handleInputChange} required className="smooth-transition" />
-                    </div>
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">Phone Number *</label>
-                      <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleInputChange} required className="smooth-transition" />
-                    </div>
+                    {["email", "phone"].map((field) => (
+                      <div key={field}>
+                        <label
+                          htmlFor={field}
+                          className="block text-sm font-medium text-primaryBlack mb-2"
+                        >
+                          {field === "email" ? "Email Address *" : "Phone Number *"}
+                        </label>
+                        <Input
+                          id={field}
+                          name={field}
+                          type={field === "email" ? "email" : "tel"}
+                          value={formData[field as keyof typeof formData]}
+                          onChange={handleInputChange}
+                          required
+                          className="smooth-transition"
+                        />
+                      </div>
+                    ))}
                   </div>
 
                   {/* Address & ZIP */}
                   <div className="grid md:grid-cols-3 gap-4">
                     <div className="md:col-span-2">
-                      <label htmlFor="address" className="block text-sm font-medium text-foreground mb-2">Property Address *</label>
-                      <Input id="address" name="address" value={formData.address} onChange={handleInputChange} required className="smooth-transition" />
+                      <label
+                        htmlFor="address"
+                        className="block text-sm font-medium text-primaryBlack mb-2"
+                      >
+                        Property Address *
+                      </label>
+                      <Input
+                        id="address"
+                        name="address"
+                        value={formData.address}
+                        onChange={handleInputChange}
+                        required
+                        className="smooth-transition"
+                      />
                     </div>
                     <div>
-                      <label htmlFor="zipCode" className="block text-sm font-medium text-foreground mb-2">ZIP Code</label>
-                      <Input id="zipCode" name="zipCode" value={formData.zipCode} onChange={handleInputChange} className="smooth-transition" />
+                      <label
+                        htmlFor="zipCode"
+                        className="block text-sm font-medium text-primaryBlack mb-2"
+                      >
+                        ZIP Code
+                      </label>
+                      <Input
+                        id="zipCode"
+                        name="zipCode"
+                        value={formData.zipCode}
+                        onChange={handleInputChange}
+                        className="smooth-transition"
+                      />
                     </div>
                   </div>
 
                   {/* Message */}
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">Project Details *</label>
-                    <Textarea id="message" name="message" value={formData.message} onChange={handleInputChange} placeholder="Please describe your fencing needs..." className="min-h-[120px] smooth-transition" required />
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-primaryBlack mb-2"
+                    >
+                      Project Details *
+                    </label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      placeholder="Describe your fencing needs, preferred materials, timeline, and any specific requirements..."
+                      className="min-h-[120px] smooth-transition"
+                      required
+                    />
                   </div>
 
-                  <Button type="submit" disabled={isSubmitting} className="w-full bg-hero-gradient hover:shadow-accent text-lg py-6 smooth-transition">
-                    {isSubmitting ? "Submitting..." : <><Send className="w-5 h-5 mr-2" />Request Free Estimate</>}
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-primaryRed hover:bg-primaryRed text-white hover:text-black text-lg py-6 smooth-transition"
+                  >
+                    {isSubmitting ? (
+                      "Submitting..."
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5 mr-2" />
+                        Request Free Estimate
+                      </>
+                    )}
                   </Button>
 
-                  <p className="text-sm text-muted-foreground text-center">
-                    * Required fields. We respect your privacy.
+                  <p className="text-sm text-primaryBlack/70 text-center">
+                    * Required fields. We respect your privacy and will never share your information.
                   </p>
                 </form>
               </CardContent>
@@ -143,26 +208,37 @@ export const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-6 animate-slide-in-right">
             {contactInfo.map((info, index) => (
-              <Card key={info.title} className="soft-shadow border-0 hover:shadow-elegant smooth-transition animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <CardContent className="p-6 flex items-start space-x-4">
-                  <div className="p-3 rounded-lg flex-shrink-0">
-                    <info.icon className="w-6 h-6 text-red-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-black mb-1">{info.title}</h3>
-                    <p className="text-lg text-muted-foreground font-medium mb-1">{info.details}</p>
-                    <p className="text-sm text-muted-foreground">{info.subtitle}</p>
+              <Card
+                key={info.title}
+                className="soft-shadow border-0 hover:shadow-elegant smooth-transition animate-scale-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <CardContent className="p-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="p-3 rounded-lg flex-shrink-0 bg-primaryRed/10">
+                      <info.icon className="w-6 h-6 text-primaryRed" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-primaryBlack mb-1">{info.title}</h3>
+                      <p className="text-primaryBlack/80 font-medium mb-1">{info.details}</p>
+                      <p className="text-sm text-primaryBlack/70">{info.subtitle}</p>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
             ))}
 
             {/* Emergency Notice */}
-            <Card className="bg-accent/10 border border-accent/20 soft-shadow">
+            <Card className="bg-primaryRed/10 border border-primaryRed/20 soft-shadow">
               <CardContent className="p-6 text-center">
-                <h3 className="font-bold text-black mb-2">Emergency Repairs?</h3>
-                <p className="text-sm text-muted-foreground mb-4">We offer 24/7 emergency fence repair services for urgent situations.</p>
-                <Button className="w-full bg-red-600 text-black hover:bg-red-700 hover:text-black border-red-600" asChild>
+                <h3 className="font-bold text-primaryBlack mb-2">Emergency Repairs?</h3>
+                <p className="text-sm text-primaryBlack/70 mb-4">
+                  We offer 24/7 emergency fence repair services for urgent situations.
+                </p>
+                <Button
+                  className="w-full bg-primaryRed text-white hover:bg-primaryRed/90 hover:text-black border-primaryRed"
+                  asChild
+                >
                   <a href="tel:8037697747">Call Now: (803) 769-7747</a>
                 </Button>
               </CardContent>
@@ -170,27 +246,13 @@ export const Contact = () => {
           </div>
         </div>
       </div>
-
-      {/* Centered Modal */}
-      {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50 animate-fadeIn">
-          <div className="bg-gradient-to-br from-white to-gray-100 rounded-3xl shadow-2xl p-10 max-w-2xl w-full text-center transform scale-90 animate-scaleUp">
-            <div className="mx-auto mb-6 w-24 h-24 flex items-center justify-center rounded-full bg-green-100 animate-bounce">
-              <CheckCircleIcon className="w-12 h-12 text-green-600" />
-            </div>
-            <h2 className="text-3xl font-extrabold mb-3 text-gray-800">Form Submitted Successfully!</h2>
-            <p className="text-gray-600 text-lg mb-6">
-              Someone from our team will reach out to you soon.
-            </p>
-            <button
-              onClick={() => setShowModal(false)}
-              className="px-8 py-3 bg-green-500 text-white font-semibold rounded-full shadow-lg hover:bg-green-600 hover:shadow-xl transition-all duration-300"
-            >
-              OK
-            </button>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
+
+const InputField = ({ name, value, onChange, label, type = "text", className = "" }) => (
+  <div>
+    <label htmlFor={name} className="block text-sm font-medium text-foreground mb-2">{label}</label>
+    <Input id={name} name={name} value={value} onChange={onChange} type={type} required className={`smooth-transition ${className}`} />
+  </div>
+);
