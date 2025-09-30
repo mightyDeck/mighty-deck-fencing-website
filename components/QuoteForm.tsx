@@ -3,28 +3,14 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import toast, { Toaster } from "react-hot-toast";
-import { CheckCircleIcon } from "@heroicons/react/24/solid"; // ✅ Heroicon for green check
+import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
 export const QuoteForm = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    phone: "",
-    email: "",
-    zip: "",
-    message: "",
-    consent: false,
-  });
+  const [formData, setFormData] = useState({ firstName: "", lastName: "", phone: "", email: "", zip: "", message: "", consent: false });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    //@ts-ignore
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === "checkbox" ? checked : value,
-    });
+    setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -35,29 +21,32 @@ export const QuoteForm = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-      const data = await res.json();
 
-      // ✅ Show toast notification with submitted data
-   toast.custom(
+      await res.json();
+
+      // ✅ Blue-themed toast for success
+      toast.custom(
         (t) => (
           <div
             className={`${
               t.visible ? "animate-enter" : "animate-leave"
-            } max-w-md w-full bg-white border-l-4 border-green-500 shadow-lg rounded-lg p-4 flex`}
+            } max-w-md w-full bg-white border-l-4 border-primaryBlue shadow-lg rounded-lg p-4 flex`}
           >
-            <CheckCircleIcon className="w-6 h-6 text-green-500 mr-3" />
+            <CheckCircleIcon className="w-6 h-6 text-primaryBlue mr-3" />
             <div className="flex flex-col">
               <strong className="text-lg text-primaryBlack mb-1">
                 Form Submitted!
               </strong>
+              <span className="text-sm text-muted-foreground">
+                We'll contact you shortly with your free estimate.
+              </span>
             </div>
           </div>
         ),
-        { duration: 7000 } // Toast stays for 7 seconds
+        { duration: 7000 }
       );
 
-
-      // Optional: Reset form after submission
+      // Reset form
       setFormData({
         firstName: "",
         lastName: "",
@@ -71,7 +60,7 @@ export const QuoteForm = () => {
       console.error(err);
       toast.error("Something went wrong!", {
         style: {
-          background: "#f87171", // red background for errors
+          background: "#60a5fa", // blue background for error
           color: "#fff",
           fontWeight: "bold",
         },
@@ -81,11 +70,11 @@ export const QuoteForm = () => {
   };
 
   return (
-<div className="bg-gradient-to-r from-black via-neutral-800 to-neutral-700 p-[2px] rounded-xl shadow-lg w-full max-w-2xl">      <Toaster position="top-right" reverseOrder={false} />
+    <div className="bg-gradient-to-r from-black via-neutral-800 to-neutral-700 p-[2px] rounded-xl shadow-lg w-full max-w-2xl">
+      <Toaster position="top-right" reverseOrder={false} />
       <div className="bg-white rounded-xl p-6 lg:p-8">
         <h2 className="text-3xl font-bold text-primaryBlack mb-4">
-          Get Your{" "}
-          <span className="text-primaryBlack font-bold">Free Estimate</span>
+          Get Your <span className="text-primaryBlue font-bold">Free Estimate</span>
         </h2>
 
         <form
@@ -98,7 +87,7 @@ export const QuoteForm = () => {
             onChange={handleChange}
             type="text"
             placeholder="First Name"
-            className="border-b p-2 focus:outline-none focus:border-green-600 col-span-1 placeholder-gray-700"
+            className="border-b p-2 focus:outline-none focus:border-primaryBlue col-span-1 placeholder-gray-700"
             required
           />
           <input
@@ -107,7 +96,7 @@ export const QuoteForm = () => {
             onChange={handleChange}
             type="text"
             placeholder="Last Name"
-            className="border-b p-2 focus:outline-none focus:border-green-600 col-span-1 placeholder-gray-700"
+            className="border-b p-2 focus:outline-none focus:border-primaryBlue col-span-1 placeholder-gray-700"
             required
           />
           <input
@@ -116,7 +105,7 @@ export const QuoteForm = () => {
             onChange={handleChange}
             type="tel"
             placeholder="Phone Number"
-            className="border-b p-2 focus:outline-none focus:border-green-600 col-span-1 placeholder-gray-700"
+            className="border-b p-2 focus:outline-none focus:border-primaryBlue col-span-1 placeholder-gray-700"
             pattern="^[0-9]{10}$"
             title="Enter a valid 10-digit phone number"
             required
@@ -127,7 +116,7 @@ export const QuoteForm = () => {
             onChange={handleChange}
             type="email"
             placeholder="Email Address"
-            className="border-b p-2 focus:outline-none focus:border-green-600 col-span-1 placeholder-gray-700"
+            className="border-b p-2 focus:outline-none focus:border-primaryBlue col-span-1 placeholder-gray-700"
             required
           />
           <input
@@ -136,7 +125,7 @@ export const QuoteForm = () => {
             onChange={handleChange}
             type="text"
             placeholder="Address"
-            className="border-b p-2 focus:outline-none focus:border-green-600 col-span-2 placeholder-gray-700"
+            className="border-b p-2 focus:outline-none focus:border-primaryBlue col-span-2 placeholder-gray-700"
             required
           />
           <textarea
@@ -145,7 +134,7 @@ export const QuoteForm = () => {
             onChange={handleChange}
             placeholder="Message"
             rows={2}
-            className="border-b p-2 focus:outline-none focus:border-green-600 col-span-2 placeholder-gray-700"
+            className="border-b p-2 focus:outline-none focus:border-primaryBlue col-span-2 placeholder-gray-700"
             required
           />
 
@@ -159,21 +148,18 @@ export const QuoteForm = () => {
               required
             />
             <span>
-              By checking this box, I consent and opt-on to receive SMS/text
-              messages via automated technology from Mighty Dog Roofing for
-              conversational purposes, appointment reminders, follow-up on
-              cases, order confirmations, and other notifications. Message
-              frequency may vary and standard messaging & data rates may apply.
-              I acknowledge that I can opt out of ALL future messages at any
-              time by replying STOP. For assistance email
-              admin@mightydecksandfences.com.
+              By checking this box, I consent to receive SMS/text messages via
+              automated technology from Mighty Fences for appointment reminders,
+              follow-ups, order confirmations, and other notifications.
+              Message frequency may vary. Standard messaging & data rates may
+              apply. Reply STOP to opt-out. For assistance email
+              admin@mightyfences.com.
             </span>
           </div>
-
           <div className="col-span-2">
             <Button
               type="submit"
-              className="w-full border-2 hover:bg-red-600 text-primaryBlack border-primaryBlack bg-primaryRed font-semibold py-3"
+              className="w-full border-2 hover:bg-primaryBlue text-white border-primaryBlue bg-primaryBlue font-semibold py-3"
             >
               Request Estimate
             </Button>
@@ -183,3 +169,7 @@ export const QuoteForm = () => {
     </div>
   );
 };
+
+const InputField = ({ name, value, onChange, placeholder, type = "text", className = "" }) => (
+  <input name={name} value={value} onChange={onChange} placeholder={placeholder} type={type} className={`border-b p-2 focus:outline-none focus:border-red-600 placeholder-gray-700 ${className}`} required />
+);

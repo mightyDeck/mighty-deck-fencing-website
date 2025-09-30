@@ -1,33 +1,27 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Shield, Award, Users } from "lucide-react";
 import Link from "next/link";
-import heroImage from "@/assets/hero-fence-installation.jpg";
 import { QuoteForm } from "./QuoteForm";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center bg-subtle-gradient pt-7">
+    <section className="relative min-h-screen flex items-center bg-gradient-to-r from-red-100 via-red-200 to-red-300 pt-7">
       <div className="container mx-auto px-4 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
               <div className="flex items-center space-x-2 text-accent">
-                <Award className="w-5 h-5" />
-                <span className="font-semibold text-sm  font-boldtracking-wide uppercase text-primaryBlack">
+                <Award className="w-5 h-5 text-primaryBlue" />
+                <span className="font-semibold text-sm tracking-wide uppercase text-primaryBlack">
                   Columbia's Premier Fence Company
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primaryBlack leading-tight">
-                Professional{" "}
-                <span className="bg-hero-gradient bg-clip-text text-primaryBlue">
-                  Fence Installation
-                </span>{" "}
-                You Can Trust
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight">
+                Professional <span className="bg-red-600 bg-clip-text text-transparent">Fence Installation</span> You Can Trust
               </h1>
 
-              <p className="text-xl  max-w-2xl leading-relaxed text-primaryBlack">
+              <p className="text-xl max-w-2xl leading-relaxed text-primaryBlack">
                 Transform your property with premium fencing solutions. Our
                 experienced team delivers exceptional craftsmanship for
                 residential, commercial, and agricultural projects throughout
@@ -35,67 +29,56 @@ export const Hero = () => {
               </p>
             </div>
 
-            {/* Trust Indicators */}
             <div className="flex flex-wrap gap-6 text-sm">
               <div className="flex items-center font-bold text-primaryBlack">
-                <Shield className="w-4 h-4 mr-2 text-primary" />
+                <Shield className="w-4 h-4 mr-2 text-primaryBlue" />
                 Licensed & Insured
               </div>
               <div className="flex items-center font-bold text-primaryBlack">
-                <Users className="w-4 h-4 mr-2 text-primary" />
+                <Users className="w-4 h-4 mr-2 text-primaryBlue" />
                 500+ Happy Customers
               </div>
               <div className="flex items-center font-bold text-primaryBlack">
-                <Award className="w-4 h-4 mr-2 text-primary" />
+                <Award className="w-4 h-4 mr-2 text-primaryBlue" />
                 25+ Years Experience
               </div>
             </div>
 
-            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact">
                 <Button
                   size="lg"
-                className="border-2 border-primary text-primaryBlack  hover:bg-primaryRed hover:text-black bg-primaryRed text-lg px-8 py-6"
+                  className="border-2 border-primaryBlue bg-primaryBlue text-white hover:bg-primaryBlue/90 hover:text-white text-lg px-8 py-6"
                 >
                   Get Free Estimate
                 </Button>
               </Link>
+
               <Button
                 variant="outline"
                 size="lg"
-                className="border-2 border-primary text-primaryBlack  hover:bg-primaryRed hover:text-black bg-primaryRed text-lg px-8 py-6"
+                className="border-2 border-primaryBlue text-primaryBlue hover:bg-primaryBlue hover:text-white text-lg px-8 py-6"
                 asChild
               >
-                <a href="tel:8037697747" className="flex items-center text-black">
+                <a href="tel:8037697747" className="flex items-center">
                   <Phone className="w-5 h-5 mr-2" />
                   Call (803) 769-7747
                 </a>
               </Button>
             </div>
-
-            <div className="text-sm font-bold text-primaryBlack">
-              Available 24/7 • Free Estimates • Same-Day Response
-            </div>
+            <div className="text-sm font-bold text-black">Available 24/7 • Free Estimates • Same-Day Response</div>
           </div>
 
-          {/* Hero Image */}
           <div className="relative animate-slide-in-right">
             <div className="relative rounded-2xl overflow-hidden elegant-shadow">
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-primaryBlue/20 to-transparent"></div>
+              {/* You can add the hero image here if needed */}
             </div>
 
             {/* Right Form */}
-            <div className="relative animate-slide-in-right">
-              <QuoteForm /> {/* 👈 reusable form */}
+            <div className="relative animate-slide-in-right mt-6">
+              <QuoteForm /> {/* Reusable form */}
             </div>
-
-            {/*<div className="absolute -top-6 -right-6 bg-accent text-accent-foreground p-4 rounded-xl accent-shadow animate-scale-in">
-              <div className="text-center">
-                <div className="text-2xl font-bold mb-1">★★★★★</div>
-                <div className="text-xs">Top Rated</div>
-              </div>
-            </div>*/}
           </div>
         </div>
       </div>

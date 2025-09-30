@@ -1,13 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Home,
-  Building,
-  Shield,
-  Hammer,
-  Wrench,
-  CheckCircle,
-} from "lucide-react";
+import { Home, Building, Shield, Hammer, Wrench, CheckCircle } from "lucide-react";
 import Link from "next/link";
 import privacyFence from "@/assets/privacy-fence.jpg";
 import commercialFence from "@/assets/commercial-fence.jpg";
@@ -17,56 +10,32 @@ const services = [
   {
     icon: Home,
     title: "Residential Fencing",
-    description:
-      "Beautiful and functional fencing solutions for your home, from privacy fences to decorative borders.",
+    description: "Beautiful and functional fencing solutions for your home, from privacy fences to decorative borders.",
     image: privacyFence,
-    features: [
-      "Privacy Fences",
-      "Picket Fences",
-      "Pool Fencing",
-      "Garden Borders",
-    ],
+    features: ["Privacy Fences", "Picket Fences", "Pool Fencing", "Garden Borders"],
   },
   {
     icon: Building,
     title: "Commercial Fencing",
-    description:
-      "Professional-grade security and boundary solutions for businesses and industrial properties.",
+    description: "Professional-grade security and boundary solutions for businesses and industrial properties.",
     image: commercialFence,
-    features: [
-      "Chain Link",
-      "Security Fencing",
-      "Access Gates",
-      "Perimeter Control",
-    ],
+    features: ["Chain Link", "Security Fencing", "Access Gates", "Perimeter Control"],
   },
   {
     icon: Shield,
     title: "Premium Materials",
-    description:
-      "High-quality wood, vinyl, aluminum, and chain link options to match any style and budget.",
+    description: "High-quality wood, vinyl, aluminum, and chain link options to match any style and budget.",
     image: vinylFence,
     features: ["Wood Fencing", "Vinyl Fencing", "Aluminum Rails", "Chain Link"],
   },
 ];
 
 const additionalServices = [
-  {
-    icon: Hammer,
-    title: "Custom Design",
-    description: "Tailored solutions for unique requirements",
-  },
-  {
-    icon: Wrench,
-    title: "Repairs & Maintenance",
-    description: "Keep your fence looking and working like new",
-  },
-  {
-    icon: CheckCircle,
-    title: "Quality Guarantee",
-    description: "Satisfaction guaranteed on all installations",
-  },
+  { icon: Hammer, title: "Custom Design", description: "Tailored solutions for unique requirements" },
+  { icon: Wrench, title: "Repairs & Maintenance", description: "Keep your fence looking and working like new" },
+  { icon: CheckCircle, title: "Quality Guarantee", description: "Satisfaction guaranteed on all installations" },
 ];
+
 export const Services = () => {
   return (
     <section id="services" className="py-20 bg-background">
@@ -78,7 +47,7 @@ export const Services = () => {
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
             Complete Fencing Solutions for{" "}
-            <span className="bg-hero-gradient bg-clip-text textprimaryRed">
+            <span className="bg-hero-gradient bg-clip-text text-primaryBlue">
               Every Need
             </span>
           </h2>
@@ -106,14 +75,14 @@ export const Services = () => {
                     className="w-full h-48 object-cover group-hover:scale-105 smooth-transition"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
-                  <div className="absolute top-4 left-4 bg-accent text-accent-foreground p-2 rounded-lg">
+                  <div className="absolute top-4 left-4 bg-primaryBlue/20 text-primaryBlue p-2 rounded-lg">
                     <service.icon className="w-6 h-6" />
                   </div>
                 </div>
 
                 <div className="p-6 space-y-4">
                   {/* Heading → black */}
-                  <h3 className="text-xl font-bold text-black group-hover:text-red-600 smooth-transition">
+                  <h3 className="text-xl font-bold text-black group-hover:text-primaryBlue smooth-transition">
                     {service.title}
                   </h3>
                   <p className="text-muted-foreground">{service.description}</p>
@@ -124,15 +93,15 @@ export const Services = () => {
                         key={feature}
                         className="flex items-center text-sm text-muted-foreground"
                       >
-                        <CheckCircle className="w-4 h-4 mr-2 text-red-600 flex-shrink-0" />
+                        <CheckCircle className="w-4 h-4 mr-2 text-primaryBlue flex-shrink-0" />
                         {feature}
                       </li>
                     ))}
                   </ul>
 
-                  {/* Button → red bg + black text */}
+                  {/* Button → blue bg + black text */}
                   <Button
-                    className="w-full bg-red-600 text-black border-2 border-red-600 hover:bg-black hover:text-white smooth-transition"
+                    className="w-full bg-primaryBlue text-black border-2 border-primaryBlue hover:bg-black hover:text-white smooth-transition"
                   >
                     Learn More
                   </Button>
@@ -150,16 +119,14 @@ export const Services = () => {
               className="text-center p-6 rounded-xl hover:bg-muted smooth-transition animate-fade-in"
               style={{ animationDelay: `${(index + 3) * 0.1}s` }}
             >
-              <div className="bg-primaryRed p-3 rounded-full w-fit mx-auto mb-4">
-                <service.icon className="w-6 h-6 text-red" />
+              <div className="bg-primaryBlue p-3 rounded-full w-fit mx-auto mb-4">
+                <service.icon className="w-6 h-6 text-white" />
               </div>
               {/* Heading → black */}
               <h3 className="text-lg font-semibold text-black mb-2">
                 {service.title}
               </h3>
-              <p className="text-primaryBlack text-sm">
-                {service.description}
-              </p>
+              <p className="text-primaryBlack text-sm">{service.description}</p>
             </div>
           ))}
         </div>
@@ -169,7 +136,7 @@ export const Services = () => {
           <Link href="/contact">
             <Button
               size="lg"
-              className="bg-red-600 text-black border-2 border-red-600 hover:bg-black hover:text-white text-lg px-8 py-6"
+              className="bg-primaryBlue text-black border-2 border-primaryBlue hover:bg-black hover:text-white text-lg px-8 py-6"
             >
               Get Your Free Quote Today
             </Button>

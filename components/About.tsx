@@ -23,27 +23,27 @@ const achievements = [
 
 export const About = () => {
   return (
-    <section id="about" className="py-20 bg-subtle-gradient">
+    <section id="about" className="py-20 bg-primaryBlue/5">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
+          {/* Left Content */}
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
               <Badge
                 variant="secondary"
-                className="bg-accent text-accent-foreground px-4 py-1"
+                className="bg-primaryBlue text-white px-4 py-1"
               >
-                About TopRail Fence Columbia
+                About Mighty Fences
               </Badge>
 
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+              <h2 className="text-4xl md:text-5xl font-bold text-primaryBlack">
                 Columbia's Most Trusted{" "}
-                <span className="bg-hero-gradient bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primaryBlue to-primaryRed bg-clip-text text-transparent">
                   Fence Professionals
                 </span>
               </h2>
 
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-primaryBlack/80 leading-relaxed">
                 For over 25 years, TopRail Fence Columbia has been the area's
                 premier choice for quality fence installation and service. Our
                 commitment to excellence, combined with superior craftsmanship
@@ -52,7 +52,7 @@ export const About = () => {
                 areas.
               </p>
 
-              <p className="text-muted-foreground">
+              <p className="text-primaryBlack/70">
                 As a locally-owned and operated business, we understand the
                 unique needs of our community. From protecting your family's
                 privacy to securing your commercial property, we deliver
@@ -62,7 +62,7 @@ export const About = () => {
 
             {/* Achievements */}
             <div className="space-y-3">
-              <h3 className="text-xl font-semibold text-foreground mb-4">
+              <h3 className="text-xl font-semibold text-primaryBlack mb-4">
                 Why Choose TopRail Fence?
               </h3>
               <div className="grid sm:grid-cols-2 gap-3">
@@ -71,8 +71,8 @@ export const About = () => {
                     key={achievement}
                     className="flex items-center space-x-3"
                   >
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-muted-foreground text-sm">
+                    <CheckCircle className="w-5 h-5 text-primaryBlue flex-shrink-0" />
+                    <span className="text-primaryBlack/70 text-sm">
                       {achievement}
                     </span>
                   </div>
@@ -80,11 +80,12 @@ export const About = () => {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 mt-4">
               <Link href="/contact">
                 <Button
                   size="lg"
-                  className="bg-hero-gradient hover:shadow-accent text-lg px-8 py-6"
+                  className="bg-primaryBlue text-white hover:bg-primaryRed transition font-semibold px-8 py-6 rounded-xl text-lg"
                 >
                   Request Free Consultation
                 </Button>
@@ -93,7 +94,7 @@ export const About = () => {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-6"
+                  className="border-primaryBlue text-primaryBlue hover:bg-primaryBlue hover:text-white transition font-semibold px-8 py-6 rounded-xl text-lg"
                 >
                   View Our Services
                 </Button>
@@ -101,21 +102,21 @@ export const About = () => {
             </div>
           </div>
 
-          {/* Stats Cards */}
+          {/* Right Content - Stats Cards */}
           <div className="grid grid-cols-2 gap-6 animate-slide-in-right">
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
-                className="bg-card p-6 rounded-xl soft-shadow text-center hover:shadow-elegant smooth-transition animate-scale-in"
+                className="bg-white border border-primaryBlue/20 p-6 rounded-xl shadow-md text-center hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out animate-scale-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="bg-hero-gradient p-3 rounded-full w-fit mx-auto mb-4">
-                  <stat.icon className="w-6 h-6 text-primary-foreground" />
+                <div className="bg-primaryBlue/10 p-3 rounded-full w-fit mx-auto mb-4">
+                  <stat.icon className="w-6 h-6 text-primaryBlue" />
                 </div>
-                <div className="text-3xl font-bold text-primary mb-2">
+                <div className="text-3xl font-bold text-primaryBlue mb-2">
                   {stat.number}
                 </div>
-                <div className="text-sm text-muted-foreground font-medium">
+                <div className="text-sm text-primaryBlack/80 font-medium">
                   {stat.label}
                 </div>
               </div>
@@ -125,18 +126,18 @@ export const About = () => {
 
         {/* Mission Statement */}
         <div className="mt-20 text-center max-w-4xl mx-auto animate-fade-in">
-          <div className="bg-primary/5 border border-primary/10 rounded-2xl p-8 md:p-12">
-            <Award className="w-12 h-12 text-accent mx-auto mb-6" />
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+          <div className="bg-primaryBlue/10 border border-primaryBlue/20 rounded-2xl p-8 md:p-12">
+            <Award className="w-12 h-12 text-primaryBlue mx-auto mb-6" />
+            <h3 className="text-2xl md:text-3xl font-bold text-primaryBlack mb-6">
               Our Mission
             </h3>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-primaryBlack/80 leading-relaxed">
               "To provide Columbia families and businesses with exceptional
               fencing solutions that enhance security, privacy, and property
-              value while delivering unmatched customer service and
-              craftsmanship that stands the test of time."
+              value while delivering unmatched customer service and craftsmanship
+              that stands the test of time."
             </p>
-            <div className="mt-6 text-sm text-muted-foreground font-medium">
+            <div className="mt-6 text-sm text-primaryBlack/70 font-medium">
               — The TopRail Fence Columbia Team
             </div>
           </div>
