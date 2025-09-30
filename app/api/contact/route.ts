@@ -17,7 +17,7 @@ export async function POST(req: any) {
   try {
     // Parse the request body
     
-    const { firstName, lastName, phone, email, zipCode, message } =
+    const { firstName, lastName, phone, email, zipCode,address, message } =
       await req.json();
 
     // Define the email options
@@ -29,6 +29,7 @@ export async function POST(req: any) {
 Name: ${firstName} ${lastName}
 Phone: ${phone}
 Email: ${email}
+Address: ${address}
 Zip Code: ${zipCode}
 Project Details: ${message}
       `,
