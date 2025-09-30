@@ -8,10 +8,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 
 const contactInfo = [
-  { icon: Phone, title: "Call Us Today", details: "(803) 769-7747", subtitle: "Available 24/7 for emergencies" },
-  { icon: Mail, title: "Email Us", details: "info@toprailfence-columbia.com", subtitle: "We respond within 24 hours" },
-  { icon: MapPin, title: "Service Area", details: "Columbia & Surrounding Areas", subtitle: "Free estimates within 25 miles" },
-  { icon: Clock, title: "Business Hours", details: "Mon-Fri: 7AM-6PM", subtitle: "Sat: 8AM-4PM, Sun: Emergency only" },
+  { icon: Phone, title: "Call Us Today", details: "(803) 769-7747", subtitle: "" },
+  { icon: Mail, title: "Email Us", details: "admin@mightydecksandfences.com", subtitle: "" },
+  { icon: MapPin, title: "Service Area", details: "Columbia & Surrounding Areas", subtitle: "" },
+  { icon: Clock, title: "Business Hours", details: "Mon-Fri: 7AM-6PM", subtitle: "" },
 ];
 
 export const Contact = () => {
@@ -51,12 +51,12 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-primaryRed/10">
+    <section id="contact" className="py-20 bg-primaryBlue/10">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
           <div className="text-primaryRed font-semibold text-sm tracking-wide uppercase mb-4">
-            Get Your Free Estimate
+            Get Your <span  className="text-primaryRed">Free Estimate</span> 
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-primaryBlack mb-6">
             Ready to Transform Your{" "}
@@ -75,11 +75,10 @@ export const Contact = () => {
             <Card className="soft-shadow border-0 animate-fade-in">
               <CardHeader>
                 <CardTitle className="text-2xl text-primaryBlack">
-                  Request Your Free Estimate
+                  Request Your <span  className="text-primaryRed">Free Estimate</span> 
                 </CardTitle>
                 <p className="text-primaryBlack/70">
-                  Fill out the form below and we'll get back to you within 24
-                  hours.
+                  Fill out the form below and we'll get back to you 
                 </p>
               </CardHeader>
               <CardContent>
@@ -152,7 +151,7 @@ export const Contact = () => {
                         htmlFor="zipCode"
                         className="block text-sm font-medium text-primaryBlack mb-2"
                       >
-                        ZIP Code
+                        ZIP Code *
                       </label>
                       <Input
                         id="zipCode"
@@ -234,7 +233,7 @@ export const Contact = () => {
               <CardContent className="p-6 text-center">
                 <h3 className="font-bold text-primaryBlack mb-2">Emergency Repairs?</h3>
                 <p className="text-sm text-primaryBlack/70 mb-4">
-                  We offer 24/7 emergency fence repair services for urgent situations.
+                  We offer emergency fence repair services for urgent situations.
                 </p>
                 <Button
                   className="w-full bg-primaryRed text-white hover:bg-primaryRed/90 hover:text-black border-primaryRed"

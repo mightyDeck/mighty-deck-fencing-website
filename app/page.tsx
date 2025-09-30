@@ -37,9 +37,16 @@ const quickServices = [
 
 const stats = [
   { number: "500+", label: "Happy Customers" },
-  { number: "25+", label: "Years Experience" },
+  { number: "24/7", label: "Response Time" },
   { number: "100%", label: "Licensed & Insured" },
-  { number: "5★", label: "Customer Rating" },
+  { 
+    number: (
+      <>
+        4.9<span className="text-yellow-400">★</span>
+      </>
+    ), 
+    label: "Customer Rating" 
+  },
 ];
 
 const Home = () => {
@@ -54,10 +61,10 @@ const Home = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-                Our{" "}
-                <span className="bg-gradient-to-r from-primaryRed to-primaryYellow bg-clip-text text-transparent">
+                Our <span className="text-primaryRed">Fencing Services</span>
+                {/* <span className="bg-gradient-to-r from-primaryRed to-primaryYellow bg-clip-text text-transparent">
                   Fencing Services
-                </span>
+                </span> */}
               </h2>
               <p className="text-lg text-gray-700 max-w-2xl mx-auto">
                 Expert fence installation and repair services tailored to your
@@ -74,19 +81,19 @@ const Home = () => {
                 >
                   <CardContent className="p-8 text-center">
                     <div className="bg-primaryRed/10 p-5 rounded-full w-fit mx-auto mb-5 group-hover:bg-primaryRed/20 transition-colors">
-                      <service.icon className="w-8 h-8 text-primaryYellow" />
+                      <service.icon className="w-8 h-8 text-primaryBlue" />
                     </div>
                     <h3 className="text-2xl font-semibold text-gray-900 mb-3">
                       {service.title}
                     </h3>
                     <p className="text-gray-600 mb-6">{service.description}</p>
                     <Link href={service.link}>
-                      <Button
+                      {/* <Button
                         variant="outline"
                         className="border-primaryRed text-primaryRed hover:bg-primaryRed hover:text-white transition flex items-center justify-center gap-2 mx-auto"
                       >
                         Learn More <ArrowRight className="w-4 h-4" />
-                      </Button>
+                      </Button> */}
                     </Link>
                   </CardContent>
                 </Card>
@@ -95,7 +102,7 @@ const Home = () => {
 
             <div className="text-center">
               <Link href="/services">
-                <Button className="bg-primaryRed text-white hover:bg-primaryRed/90 font-semibold px-10 py-5 rounded-xl text-lg">
+                <Button className="bg-primaryBlue text-white hover:bg-primaryRed/90 font-semibold px-10 py-5 rounded-xl text-lg">
                   View All Services
                 </Button>
               </Link>
@@ -112,11 +119,11 @@ const Home = () => {
                 <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900">
                   Why Columbia Trusts{" "}
                   <span className="bg-gradient-to-r from-primaryRed to-primaryRed bg-clip-text text-transparent">
-                    MightyFences
+                    Mighty Fences
                   </span>
                 </h2>
                 <p className="text-lg text-gray-700 font-medium">
-                  With over 25 years of experience, we’ve built our reputation
+                  With years of experience, we’ve built our reputation
                   on trust, craftsmanship, and customer satisfaction.
                 </p>
 
@@ -125,11 +132,13 @@ const Home = () => {
                     "Licensed & Insured Professional Team",
                     "Premium Materials & Expert Craftsmanship",
                     "Free Estimates & Transparent Pricing",
-                    "24/7 Emergency Fence Repair Services",
+                    "Emergency Fence Repair Services",
                   ].map((feature) => (
                     <div key={feature} className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-primaryRed flex-shrink-0" />
-                      <span className="text-gray-900 font-medium">{feature}</span>
+                      <span className="text-gray-900 font-medium">
+                        {feature}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -162,7 +171,9 @@ const Home = () => {
                     <div className="text-3xl font-bold text-primaryRed mb-2">
                       {stat.number}
                     </div>
-                    <div className="text-gray-700 font-medium">{stat.label}</div>
+                    <div className="text-gray-700 font-medium">
+                      {stat.label}
+                    </div>
                   </div>
                 ))}
               </div>

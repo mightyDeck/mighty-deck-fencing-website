@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, MapPin, Star } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
+import { Star, StarHalf, StarOutline } from "lucide-react";
 
 const services = [
   "Residential Fencing",
@@ -14,14 +15,16 @@ const services = [
 ];
 
 const serviceAreas = [
-  "Columbia, SC",
-  "Lexington, SC",
-  "Irmo, SC",
-  "West Columbia, SC",
-  "Cayce, SC",
-  "Forest Acres, SC",
-  "Springdale, SC",
-  "Pine Ridge, SC",
+    <>
+    Serving Columbia & <br /> Surrounding Areas
+  </>,
+  // "Surrounding Areas",
+  // "Irmo, SC",
+  // "West Columbia, SC",
+  // "Cayce, SC",
+  // "Forest Acres, SC",
+  // "Springdale, SC",
+  // "Pine Ridge, SC",
 ];
 
 export const Footer = () => {
@@ -34,22 +37,32 @@ export const Footer = () => {
           <div className="space-y-6">
             <div>
               <h3 className="text-2xl font-bold mb-2">
-                Mighty <span className="text-primaryRed">Fence</span>
+                Mighty <span className="text-primaryRed">Fences</span>
               </h3>
               <p className="text-primaryBlack mb-4">
                 Columbia's premier fence installation company, serving the
-                community with quality craftsmanship for over 25 years.
+                community with quality craftsmanship.
               </p>
 
               {/* Rating */}
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primaryRed text-primaryRed" />
-                  ))}
-                </div>
-                <span className="text-sm text-primaryBlack">5.0 Rating</span>
-              </div>
+                {/* <div className="flex items-center space-x-2 mb-4">
+                  <div className="flex">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-primaryRed text-primaryRed" />
+                    ))}
+                  </div>
+                  <span className="text-sm text-primaryBlack">5.0 Rating</span>
+                </div> */}
+
+                <div className="flex items-center space-x-2 mb-4">
+  <div className="flex">
+    {[...Array(4)].map((_, i) => (
+      <Star key={i} className="w-4 h-4 fill-primaryYellow text-primaryYellow" />
+    ))}
+    <StarHalf className="w-4 h-4 fill-primaryYellow text-primaryYellow" />
+  </div>
+  <span className="text-sm text-primaryBlack">4.9 Rating</span>
+</div>
 
               <Link href="/contact">
                 <Button
@@ -89,12 +102,12 @@ export const Footer = () => {
                 </li>
               ))}
             </ul>
-            <p className="text-xs text-black mt-4">*Free estimates within 25 miles</p>
+            {/* <p className="text-xs text-black mt-4">*Free estimates within 25 miles</p> */}
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-primaryBlack">Get In Touch</h4>
+            <h4 className="text-lg font-semibold mb-4 text-primaryBlack">Contact Us</h4>
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-primaryRed flex-shrink-0" />
@@ -105,7 +118,7 @@ export const Footer = () => {
                   >
                     (803) 769-7747
                   </a>
-                  <p className="text-xs text-primaryBlack">Available 24/7</p>
+                  {/* <p className="text-xs text-primaryBlack">Available 24/7</p> */}
                 </div>
               </div>
 
@@ -121,14 +134,14 @@ export const Footer = () => {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-3">
+              {/* <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-primaryRed flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-primaryBlack text-sm">
                     Serving Columbia & <br /> Surrounding Areas
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             {/* Business Hours */}
@@ -176,7 +189,7 @@ export const Footer = () => {
               >
                 Terms of Service
               </a>
-              <div className="text-primaryBlack">License #ABC123456</div>
+              {/* <div className="text-primaryBlack">License #ABC123456</div> */}
             </div>
           </div>
         </div>

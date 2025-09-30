@@ -40,7 +40,7 @@ export const Hero = () => {
               </div>
               <div className="flex items-center font-bold text-primaryBlack">
                 <Award className="w-4 h-4 mr-2 text-primaryYellow" />
-                25+ Years Experience
+                Years of Experience
               </div>
             </div>
 

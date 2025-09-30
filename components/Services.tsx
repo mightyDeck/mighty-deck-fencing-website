@@ -42,9 +42,9 @@ export const Services = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <div className="text-primaryBlack font-semibold text-sm tracking-wide uppercase mb-4">
+          {/* <div className="text-primaryBlack font-semibold text-sm tracking-wide uppercase mb-4">
             Our Services
-          </div>
+          </div> */}
           <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
             Complete Fencing Solutions for{" "}
             <span className="bg-hero-gradient bg-clip-text text-primaryRed">
@@ -100,11 +100,11 @@ export const Services = () => {
                   </ul>
 
                   {/* Button → blue bg + black text */}
-                  <Button
+                  {/* <Button
                     className="w-full bg-primaryRed text-black border-2 border-primaryRed hover:bg-black hover:text-white smooth-transition"
                   >
                     Learn More
-                  </Button>
+                  </Button> */}
                 </div>
               </CardContent>
             </Card>
