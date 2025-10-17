@@ -18,7 +18,7 @@ export const Navigation = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <div className="text-2xl font-bold font-montserrat text-primaryBlack">
-              Mighty <span className="text-primaryRed font-montserrat">Fences</span>
+              Mighty <span className="text-primaryRed font-montserrat">Fence</span>
             </div>
             <div className="ml-2 text-sm text-muted-foreground hidden sm:block"></div>
           </Link>
