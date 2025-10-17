@@ -62,7 +62,7 @@ export const Hero = () => {
               >
                 <a href="tel:8037697747" className="flex items-center">
                   <Phone className="w-5 h-5 mr-2" />
-                  Call (803) 769-7747
+                  Call (803) 884-5646
                 </a>
               </Button>
             </div>

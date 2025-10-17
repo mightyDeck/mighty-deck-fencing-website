@@ -18,7 +18,7 @@ export const Navigation = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <div className="text-2xl font-bold font-montserrat text-primaryBlack">
-              Mighty <span className="text-primaryRed font-montserrat">Fence</span>
+              Mighty <span className="text-primaryRed font-montserrat">Fences</span>
             </div>
             <div className="ml-2 text-sm text-muted-foreground hidden sm:block"></div>
           </Link>
@@ -64,7 +64,7 @@ export const Navigation = () => {
               className="flex items-center text-primaryRed hover:text-primary-glow smooth-transition"
             >
               <Phone className="w-4 h-4 mr-2 text-primaryRed" />
-              <span className="font-semibold text-primaryBlack">(803) 769-7747</span>
+              <span className="font-semibold text-primaryBlack">(803) 884-5646</span>
             </a>
             <Link href="/contact">
               <Button
@@ -133,7 +133,7 @@ export const Navigation = () => {
                   className="flex items-center text-primaryRed font-semibold mb-3"
                 >
                   <Phone className="w-4 h-4 mr-2" />
-                  (803) 769-7747
+                  (803) 884-5646
                 </a>
                 <Link href="/contact" onClick={() => setIsOpen(false)}>
                   <Button className="w-full bg-primaryRed text-white hover:bg-primaryRed/90">

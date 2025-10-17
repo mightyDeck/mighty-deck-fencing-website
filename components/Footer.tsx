@@ -117,7 +117,7 @@ export const Footer = () => {
                     href="tel:8037697747"
                     className="text-primaryBlack font-semibold hover:text-primaryRed smooth-transition"
                   >
-                    (803) 769-7747
+                    (803) 884-5646
                   </a>
                   {/* <p className="text-xs text-primaryBlack">Available 24/7</p> */}
                 </div>

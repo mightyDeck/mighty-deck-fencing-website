@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 
 const contactInfo = [
-  { icon: Phone, title: "Call Us Today", details: "(803) 769-7747", subtitle: "" },
+  { icon: Phone, title: "Call Us Today", details: "(803) 884-5646", subtitle: "" },
   { icon: Mail, title: "Email Us", details: "admin@mightydecksandfences.com", subtitle: "" },
   { icon: MapPin, title: "Service Area", details: "Columbia & Surrounding Areas", subtitle: "" },
   { icon: Clock, title: "Business Hours", details: "Mon-Fri: 7AM-6PM", subtitle: "" },
@@ -239,7 +239,7 @@ export const Contact = () => {
                   className="w-full bg-primaryRed text-white hover:bg-primaryRed/90 hover:text-black border-primaryRed"
                   asChild
                 >
-                  <a href="tel:8037697747">Call Now: (803) 769-7747</a>
+                  <a href="tel:8037697747">Call Now: (803) 884-5646</a>
                 </Button>
               </CardContent>
             </Card>
